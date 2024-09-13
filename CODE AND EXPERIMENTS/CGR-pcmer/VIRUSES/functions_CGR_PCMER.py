@@ -40,9 +40,7 @@ def count_kmers(sequence, k):
 # count_kmers with jellyfish
 def count_kmers_jellyfish(fasta, k):
   my_dir = 'jellyfish/'
-  #my_dir = '/media/eleonora/Eleonora USB/ASSEGNO PIPELINE BIOINFORMATICHE DEI/CODE AND EXPERIMENTS/CGR-pcmer/'
-  #my_dir_shell = '/media/eleonora/Eleonora\ USB/ ASSEGNO\ PIPELINE\ BIOINFORMATICHE/ DEI/CODE\ AND\ EXPERIMENTS/CGR-pcmer/'
-  cmd = my_dir + 'jellyfish-linux'
+  cmd = my_dir + 'jellyfish-binary'
   fasta = fasta.replace(" ", "\\ ")
 
   subprocess.call([cmd + ' count  -m ' + str(k) +  ' -s 100M -t 10 ' + '-o ' +  my_dir + 'mer_counts.jf ' + fasta], shell=True)  # returns the exit code in unix
