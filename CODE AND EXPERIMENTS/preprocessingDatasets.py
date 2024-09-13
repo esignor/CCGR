@@ -200,8 +200,8 @@ if __name__ == '__main__':
         #flag_virus = "HepatitisB_1"
         #flag_virus = "HepatitisB_2"
         #flag_virus = "HepatitisC"
-        #flag_virus = "InfluenzaA_1"
-        #flag_virus = "InfluenzaA_2"
+        #flag_virus = "InfluenzaA"
+        
 
         if flag_virus == 'HIV_1':
             directory='CODE AND EXPERIMENTS/DATASET/12classes_hiv dataset'
@@ -227,14 +227,10 @@ if __name__ == '__main__':
             directory='CODE AND EXPERIMENTS/DATASET/13classes_hepatitisB dataset'
             masterpath='CODE AND EXPERIMENTS/DATASET/hepatitisB_2.fasta'
             N = 13 # 6824 samples
-        elif flag_virus == 'InfluenzaA_1':
+        elif flag_virus == 'InfluenzaA':
             directory='CODE AND EXPERIMENTS/DATASET/56classes_influenzaA_reduced dataset'
             masterpath='CODE AND EXPERIMENTS/DATASET/influenzaA.fasta'
-            N = 56 # samples
-        elif flag_virus == 'InfluenzaA_2':
-            directory='CODE AND EXPERIMENTS/DATASET/76classes_influenzaA dataset'
-            masterpath='CODE AND EXPERIMENTS/DATASET/influenzaA.fasta'
-            N = 76 # samples
+            N = 56 # 36549 samples
             
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -268,7 +264,7 @@ if __name__ == '__main__':
                     else:
                         y_class = (((row.split('|'))[2]).split('Hepatitis B Virus')[1].split('.')[0]).split('genotype')[1].split(" ")[1]
                     y_data.append(y_class)
-                elif flag_virus == 'InfluenzaA_1' or flag_virus == 'InfluenzaA_2':
+                elif flag_virus == 'InfluenzaA":
                     y_class = ((row.split(' '))[0]).replace('>', "").replace('?',"")
                     no_classes = ['Mixed', 'mixed']; mixed = False
                     for mix in no_classes:
@@ -305,5 +301,5 @@ if __name__ == '__main__':
         elif flag_virus == 'Dengue': prerocessingDataset_Dengue(masterpath, directory, ClassesN_dict)
         elif flag_virus == 'HepatitisC': prerocessingDataset_HepatitisC(masterpath, directory, ClassesN_dict)
         elif flag_virus == 'HepatitisB_1' or flag_virus == 'HepatitisB_2': prerocessingDataset_HepatitisB(masterpath, directory, ClassesN_dict, N)
-        elif flag_virus == 'InfluenzaA_1' or flag_virus == 'InfluenzaA_2': prerocessingDataset_InfluenzaA(avg, masterpath, directory, ClassesN_dict, N)
+        elif flag_virus == 'InfluenzaA': prerocessingDataset_InfluenzaA(avg, masterpath, directory, ClassesN_dict, N)
     
