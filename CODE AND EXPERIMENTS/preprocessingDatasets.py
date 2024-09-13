@@ -32,7 +32,7 @@ def prerocessingDataset_InfluenzaA(avg, masterpath, directory, ClassesN_dict, N)
 
 
             if y_class not in ClassesN_dict.keys(): y_class = ""; continue
-            directory= 'CODE AND EXPERIMENTS/DATASET/' + str(N) + 'classes_influenzaA dataset/' + y_class
+            directory= 'CODE AND EXPERIMENTS/DATASET/' + str(N) + 'classes_influenzaA_reduced dataset/' + y_class
             if not os.path.exists(directory):
                 os.makedirs(directory)
                 print("Create ", y_class,  " directory")
