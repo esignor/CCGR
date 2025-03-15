@@ -4,7 +4,7 @@ def Encode_Grayscale(masterpath, directory):
     mypath=masterpath
 
     w, h = 1024,1024
-    w2, h2 = 64,64
+    w2, h2 = 256/100,256/100
     my_list = os.listdir(mypath)
 
     for i in range(len(my_list)):

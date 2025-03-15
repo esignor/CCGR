@@ -1,7 +1,7 @@
 
 ## MODULE
 import sys
-#sys.path.insert(1, 'ASSEGNO PIPELINE BIOINFORMATICHE DEI/CODE AND EXPERIMENTS/CGR-pcmer/') # jelliyfish
+#sys.path.insert(1, 'colouredFCGR/CODE AND EXPERIMENTS/CGR-pcmer/') # jelliyfish
 sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/') # my kmer-cout
 import VIRUSES
 
@@ -21,9 +21,9 @@ if __name__ == '__main__':
     
     jellyfish = False
     if jellyfish: # for jellyfish
-        MAIN_FOLDER = 'ASSEGNO PIPELINE BIOINFORMATICHE DEI/CODE AND EXPERIMENTS'
+        MAIN_FOLDER = 'colouredFCGR/CODE AND EXPERIMENTS'
     else: MAIN_FOLDER = 'CODE AND EXPERIMENTS' # my kmers_count
-    out_directory = MAIN_FOLDER + '/CGR-pcmer/VIRUSES/OUTFCGRPCMER_ENCODER/Viruses'
+    out_directory = MAIN_FOLDER + '/CGR-pcmer/VIRUSES/ColouredChaosGameRepresentation_ENCODER/Viruses'
     print(out_directory)
     if not os.path.exists(out_directory):
         os.makedirs(out_directory)
@@ -80,8 +80,8 @@ if __name__ == '__main__':
                 if jellyfish: title = fileFASTA.split('/')[5].split('.fasta')[0].replace('.', '-')
                 else: title = fileFASTA.split('/')[4].split('.fasta')[0].replace('.', '-')
                 
-                kmer = 10 # test with 4, 6, 8 and 10
-                type_encodingColour = "all encoding MAXFREQUENCYPCMER" # [MAXFREQUENCYFCGR:K-mersE, MAXFREQUENCYPCMER:PC-mersE]
+                kmer = 10 # k-mers size: 4, 6, 8, and 10
+                type_encodingColour = "kCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
                 threshold = [0, 0.5, 1]
                 
                 directory_png = out_directory + '/' +  viruses 
