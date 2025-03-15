@@ -21,7 +21,7 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
     def get_kmers_rgb(self):
         return self.kmers_rgb
     
-#### Frequency FCGR ##################################################################################################################################
+#### kCCGR ##################################################################################################################################
        
 ## maxFreq is calculate in the maximum frequency existing in the FCGR
 
@@ -214,7 +214,6 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
             self.__set_kmers_rgb(threshold, list_kmer_rgb)
 
 
-# da settare dimensione immagine
     def __design_fcgr(self, title, directory, type_encodingColour, dir_classes):
         len_square = int(math.sqrt(2**(2*self.kmer)))
 
