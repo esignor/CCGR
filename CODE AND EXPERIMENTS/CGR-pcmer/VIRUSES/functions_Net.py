@@ -4,7 +4,6 @@ import VIRUSES
 from VIRUSES.module import *
 
 def create_AlexNet(model, shape, nb_classes):
-  #model = Sequential()
   model.add(layers.Conv2D(filters=96, kernel_size=(11, 11), strides=(4, 4), activation="relu", input_shape= shape))
   model.add(layers.BatchNormalization())
   model.add(layers.MaxPool2D(pool_size=(3, 3), strides= (2, 2)))
@@ -115,7 +114,7 @@ def preprocessing(type_arch, type_encoder, dataset, k, job):
 # affine transformations are applied.
     X = []
     y = []
-    path_main = out_directory + 'OUTFCGRPCMER_ENCODER/' + dataset + '/' + job
+    path_main = out_directory + 'ColouredChaosGameRepresentation_ENCODER/' + dataset + '/' + job
     os.chdir(path_main)
     dirs = filter(os.path.isdir, os.listdir(os.curdir))
     for dir in dirs:
@@ -126,7 +125,6 @@ def preprocessing(type_arch, type_encoder, dataset, k, job):
             if type_arch == "AlexNet":
               ## resize image for AlexNet
               single_channel = im_frame.resize((227, 227))
-              # np_frame = np.array((im_frame.resize((227, 227)).getdata()))
               if type_encoder == "RGB":
                 np_frame = np.concatenate([single_channel], axis = -1)
               else:
@@ -136,7 +134,6 @@ def preprocessing(type_arch, type_encoder, dataset, k, job):
             elif type_arch == "ResNet50":
               ## resize image for ResNet50
               single_channel = im_frame.resize((224, 224))
-              # np_frame = np.array((im_frame.resize((224, 224)).getdata()))
               if type_encoder == "RGB":
                 np_frame = np.concatenate([single_channel], axis = -1)
               else:
@@ -211,10 +208,6 @@ def saveModel(dataset, model, net, type_encoder, job, batch_size, epoch):
 
   model_file = directory + type_encoder + "model " + net + " " + job + " " + "batchsize " + str(batch_size) + " epoch " + str(epoch) + ".keras"
 
-  #with open(model_file, 'wb') as file:
-    #pickle.dump(model, file) # dump and pickle for to store the object data to the file
-    #file.close()
-    
   model.save(model_file)
   print("Save Model!")
     

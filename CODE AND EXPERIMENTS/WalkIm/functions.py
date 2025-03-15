@@ -1,34 +1,20 @@
 from module import *
 
 def create_SimplerCNN(model, shape, nb_classes):
-  #model = Sequential()
   model.add(layers.Conv2D(filters=8, kernel_size=(3, 3), strides=(1, 1), activation="relu", input_shape=shape, padding = "same"))
-  #model.add(Input(shape))
-  #model.add(Convolution2D(8, 3, padding='same'))
-  #model.add(Activation('relu'))
   model.add(layers.MaxPool2D(pool_size=(2, 2)))
-  #model.add(MaxPooling2D(pool_size=(2, 2)))
   model.add(layers.Conv2D(filters=16, kernel_size=(3, 3), strides=(1, 1), activation="relu", padding = "same"))
-  #model.add(Convolution2D(16, 3, padding='same'))
-  #model.add(Activation('relu'))
   model.add(layers.MaxPool2D(pool_size=(2, 2)))
-  #model.add(MaxPooling2D(pool_size=(2, 2)))
   model.add(layers.Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), activation="relu", padding = "same"))
-  #model.add(Convolution2D(32, 3, padding='same'))
-  #model.add(Activation('relu'))
   model.add(layers.MaxPool2D(pool_size=(2, 2)))
-  #model.add(MaxPooling2D(pool_size=(2, 2)))
   model.add(layers.Flatten())
   model.add(layers.Dense(128, activation = "relu"))
-  #model.add(Activation('relu'))
   model.add(layers.Dropout(0.25, seed=0))
   model.add(layers.Dense(nb_classes, activation = "softmax"))
-  #model.add(Activation('softmax'))
   model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
   return model
 
 def create_ComplexCNN(model, shape, nb_classes):
-  #model = Sequential()
   model.add(layers.Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), activation="relu", input_shape=shape, padding = "same"))
   model.add(layers.Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), activation="relu", padding = "same"))
   model.add(layers.MaxPool2D(pool_size=(2, 2)))
