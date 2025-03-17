@@ -15,8 +15,6 @@ import keras.layers as layers
 import glob
 import keras
 from sklearn.model_selection import train_test_split
-
-
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import multiprocessing as mp
