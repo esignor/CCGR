@@ -5,7 +5,7 @@ Akbari Rokn Abadi S, Mohammadi A, Koohi S (2022) WalkIm: Compact image-based enc
 
 **Software configuration:**
 
-The code developed in “colouredFCGR” is in Python programming language version 3.9.
+The code developed in “coloredFCGR” is in Python programming language version 3.9.
 
 To compile the software correctly, installation of the following python libraries is required: pandas, matplotlib, scikit-learn, keras, and tensorflow.
 
