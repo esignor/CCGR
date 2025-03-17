@@ -264,7 +264,7 @@ if __name__ == '__main__':
                     else:
                         y_class = (((row.split('|'))[2]).split('Hepatitis B Virus')[1].split('.')[0]).split('genotype')[1].split(" ")[1]
                     y_data.append(y_class)
-                elif flag_virus == 'InfluenzaA":
+                elif flag_virus == 'InfluenzaA':
                     y_class = ((row.split(' '))[0]).replace('>', "").replace('?',"")
                     no_classes = ['Mixed', 'mixed']; mixed = False
                     for mix in no_classes:

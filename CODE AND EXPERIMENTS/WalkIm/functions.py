@@ -157,7 +157,6 @@ def preprocessing(type_arch, type_encoder, dataset):
             if type_arch == "AlexNet":
               ## resize image for AlexNet
               single_channel = im_frame.resize((227, 227))
-              # np_frame = np.array((im_frame.resize((227, 227)).getdata()))
               if type_encoder == "RGB":
                 np_frame = np.concatenate([single_channel], axis = -1)
               else:
@@ -169,7 +168,6 @@ def preprocessing(type_arch, type_encoder, dataset):
             elif type_arch == "ResNet50":
               ## resize image for ResNet50
               single_channel = im_frame.resize((224, 224))
-              # np_frame = np.array((im_frame.resize((224, 224)).getdata()))
               if type_encoder == "RGB":
                 np_frame = np.concatenate([single_channel], axis = -1)
               else:
