@@ -39,12 +39,12 @@ def count_kmers(sequence, k):
 
 # count_kmers with jellyfish
 def count_kmers_jellyfish(fasta, k):
-  my_dir = 'jellyfish/'
+  my_dir = 'CODE AND EXPERIMENTS/CGR-pcmer/jellyfish/'
   cmd = my_dir + 'jellyfish-binary'
   fasta = fasta.replace(" ", "\\ ")
 
-  subprocess.call([cmd + ' count  -m ' + str(k) +  ' -s 100M -t 10 ' + '-o ' +  my_dir + 'mer_counts.jf ' + fasta], shell=True)  # returns the exit code in unix
-  subprocess.call([cmd + ' dump ' + my_dir + 'mer_counts.jf -c > ' + my_dir + 'mer_counts_dumps.csv'], shell=True) 
+  subprocess.run([cmd + ' count  -m ' + str(k) +  ' -s 100M -t 10 ' + '-o ' +  my_dir + 'mer_counts.jf ' + fasta], shell=True)  # returns the exit code in unix
+  subprocess.run([cmd + ' dump ' + my_dir + 'mer_counts.jf -c > ' + my_dir + 'mer_counts_dumps.csv'], shell=True) 
 
 
   count_kmers = pd.read_csv(my_dir + 'mer_counts_dumps.csv', delimiter = ' ', skiprows=1, header=None, low_memory=False)

@@ -121,8 +121,23 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
             self.__set_kmers_rgb(threshold, list_kmer_rgb)
 
 #### pcCCGR ###################################################################################################################################
-            
+
 # Counter PCMER is the frequency and PCMER is the codify in hashmap
+# Count the kmers in the structural encoding          
+    def counter_pcmer(self, pp, ak, ws, maxFreq_pp, maxFreq_ak, maxFreq_ws, dicFreq_pp, dicFreq_ak, dicFreq_ws):
+        if tuple(pp) in dicFreq_pp.keys(): dicFreq_pp[tuple(pp)] += 1
+        else: dicFreq_pp.update({tuple(pp):1})
+        if maxFreq_pp < dicFreq_pp[tuple(pp)]: maxFreq_pp = dicFreq_pp[tuple(pp)]
+
+        if tuple(ak) in dicFreq_ak.keys(): dicFreq_ak[tuple(ak)] += 1
+        else: dicFreq_ak.update({tuple(ak):1})
+        if maxFreq_ak < dicFreq_ak[tuple(ak)]: maxFreq_ak = dicFreq_ak[tuple(ak)]
+
+        if tuple(ws) in dicFreq_ws.keys(): dicFreq_ws[tuple(ws)] += 1
+        else: dicFreq_ws.update({tuple(ws):1})
+        if maxFreq_ws < dicFreq_ws[tuple(ws)]: maxFreq_ws = dicFreq_ws[tuple(ws)]
+
+        return maxFreq_pp, maxFreq_ak, maxFreq_ws, dicFreq_pp, dicFreq_ak, dicFreq_ws
     
 ## maxFreq is calculate in the maximum frequency existing in the PCMER
     def __seqKmers_PPAKWS_rgbAllEncoding_MAXFREQUENCYPCMER(self, maxFreq_pp, maxFreq_ak, maxFreq_ws, dicFreq_pp, dicFreq_ak, dicFreq_ws, thresholds):
@@ -213,6 +228,7 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
 
             self.__set_kmers_rgb(threshold, list_kmer_rgb)
 
+##################################################################################################################################################################
 
     def __design_fcgr(self, title, directory, type_encodingColour, dir_classes):
         len_square = int(math.sqrt(2**(2*self.kmer)))
@@ -286,12 +302,12 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
         return self
     
 
-    def build_fcgr_pcmerMAXFREQUENCYFCGR(self, seq, k, thresholds, fileFASTA):
-        start0_time = time.time() 
-        maxFreq = 0
-        kmers, frequencies = count_kmers(seq, k)
-        #kmers, frequencies = count_kmers_jellyfish(fileFASTA, k)
-        array_size = int(math.sqrt(2**(2*k))) # cells for row/colomn present in the fcgr bi-dimensional matrix
+    def build_fcgr_pcmerMAXFREQUENCYFCGR(self, seq, k, thresholds, jellyfish, fileFASTA):
+
+        if jellyfish == False: kmers, frequencies = count_kmers(seq, k)
+        else: kmers, frequencies = count_kmers_jellyfish(fileFASTA, k)
+
+        maxFreq = 0; array_size = int(math.sqrt(2**(2*k))) # cells for row/colomn present in the fcgr bi-dimensional matrix
         super().init_seq_kmer(array_size)
 
         matrix_fcgr = []; seq_fcgr = []
@@ -318,7 +334,7 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
             y_supp += ratio_cell
             
             
-            j -= 1 # array_size-1..0 (i.e., 'AA': y_coord = 3 and y = 1; 0.5+0.5+0.5+0.5, y=4-1-1-1=3)
+            j -= 1 # array_size-1..0 
           matrix_fcgr[j][i] = freq # [j][i] coord y, x = riga j, colonna i
           seq_fcgr[j][i] = seq_kmer
 
@@ -329,22 +345,20 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
 
           if freq > maxFreq: maxFreq = freq
 
-        start_time = time.time()
         self.__seqKmers_PPAKWS_rgbAllEncoding_MAXFREQUENCYFCGR(maxFreq, thresholds)
-        end_time = time.time()
-        end0_time = time.time()
-        print('Time applied colour', end_time - start_time)
-        print('Time FCGR PCMER RGB', end0_time - start0_time)
+
 
         return self
     
 
-    def build_fcgr_pcmerMAXFREQUENCYPCMER(self, seq, k, thresholds, fileFASTA):
-        start0_time = time.time()    
+    def build_fcgr_pcmerMAXFREQUENCYPCMER(self, seq, k, thresholds, jellyfish, fileFASTA):
+ 
         maxFreq_pp = 0; maxFreq_ak = 0; maxFreq_ws = 0
         dicFreq_pp = {}; dicFreq_ak = {}; dicFreq_ws = {}
-        kmers, frequencies = count_kmers(seq, k)
-        #kmers, frequencies = count_kmers_jellyfish(fileFASTA, k)
+
+        if jellyfish == False: kmers, frequencies = count_kmers(seq, k)
+        else: kmers, frequencies = count_kmers_jellyfish(fileFASTA, k)
+
         array_size = int(math.sqrt(2**(2*k))) # cells for row/colomn present in the fcgr bi-dimensional matrix
         super().init_seq_kmer(array_size)
 
@@ -386,25 +400,17 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
           ws = self.seqKmers_PPAKWS[index][1][2]
 
           maxFreq_pp, maxFreq_ak, maxFreq_ws, dicFreq_pp, dicFreq_ak, dicFreq_ws = self.counter_pcmer(pp, ak, ws, maxFreq_pp, maxFreq_ak, maxFreq_ws, dicFreq_pp, dicFreq_ak, dicFreq_ws)
-        start_time = time.time()
         self.__seqKmers_PPAKWS_rgbAllEncoding_MAXFREQUENCYPCMER(maxFreq_pp, maxFreq_ak, maxFreq_ws, dicFreq_pp, dicFreq_ak, dicFreq_ws, thresholds)
-        end_time = time.time()
-        end0_time = time.time()
-        print('Time applied colour', end_time - start_time)
-        print('Time FCGR PCMER RGB', end0_time - start0_time)
         return self
     
 
-    def build_fcgr(self, seq, k, type_encodingColour, thresholds, fileFASTA, title = None, directory = None, dir_classes = None, flag_design_gs = False):
-        start_time = time.time()
+    def build_fcgr(self, seq, k, type_encodingColour, thresholds, jellyfish, fileFASTA, title = None, directory = None, dir_classes = None, flag_design_gs = False):
+        print('Jellyfish', jellyfish)
         if "kCCGR" in type_encodingColour:
-            self.build_fcgr_pcmerMAXFREQUENCYFCGR(seq, k, thresholds, fileFASTA)
-            end_time = time.time()
+            self.build_fcgr_pcmerMAXFREQUENCYFCGR(seq, k, thresholds, jellyfish, fileFASTA)
         elif "pcCCGR" in type_encodingColour:
-            self.build_fcgr_pcmerMAXFREQUENCYPCMER(seq, k, thresholds, fileFASTA)
-            end_time = time.time()
+            self.build_fcgr_pcmerMAXFREQUENCYPCMER(seq, k, thresholds, jellyfish, fileFASTA)
         self.__design_fcgr(title, directory, type_encodingColour, dir_classes)
-        end_time = time.time()
         return self  
     
     
