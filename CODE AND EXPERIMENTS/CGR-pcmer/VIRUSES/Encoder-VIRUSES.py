@@ -1,7 +1,6 @@
 
 ## MODULE
 import sys
-#sys.path.insert(1, 'colouredFCGR/CODE AND EXPERIMENTS/CGR-pcmer/') # jelliyfish
 sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/') # my kmer-cout
 import VIRUSES
 
@@ -19,11 +18,9 @@ if __name__ == '__main__':
     start_time = time.time()
 # DATASET HIV-1 (1) n_classes = 12, HIV-1 (2) n_classes = 37, DENGUE n_classes=4, CORONAVIRUSES n_classes=7, HEPATITISC n_classes=6, HEPATITIS B (1) n_classes=8, HEPATITIS B (2) n_classes=13, INFLUENZA A n_classes = 56
     
-    jellyfish = False
-    if jellyfish: # for jellyfish
-        MAIN_FOLDER = 'colouredFCGR/CODE AND EXPERIMENTS'
-    else: MAIN_FOLDER = 'CODE AND EXPERIMENTS' # my kmers_count
-    out_directory = MAIN_FOLDER + '/CGR-pcmer/VIRUSES/ColouredChaosGameRepresentation_ENCODER/Viruses'
+    jellyfish = True # for used jellyfish set the flag to True
+    MAIN_FOLDER = 'CODE AND EXPERIMENTS'
+    out_directory = MAIN_FOLDER + '/CGR-pcmer/VIRUSES/ColoredChaosGameRepresentation_ENCODER/Viruses'
     print(out_directory)
     if not os.path.exists(out_directory):
         os.makedirs(out_directory)
@@ -76,12 +73,9 @@ if __name__ == '__main__':
 
                 fileFASTA = Subpath + '/' + onlyfiles[s]
                 genome_viruses = parse_sequence(fileFASTA)
-
-                if jellyfish: title = fileFASTA.split('/')[5].split('.fasta')[0].replace('.', '-')
-                else: title = fileFASTA.split('/')[4].split('.fasta')[0].replace('.', '-')
-                
-                kmer = 10 # k-mers size: 4, 6, 8, and 10
-                type_encodingColour = "kCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
+                title = fileFASTA.split('/')[4].split('.fasta')[0].replace('.', '-')
+                kmer = 5 # k-mers size: 4, 6, 8, and 10
+                type_encodingColour = "pcCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
                 threshold = [0, 0.5, 1]
                 
                 directory_png = out_directory + '/' +  viruses 
@@ -90,7 +84,7 @@ if __name__ == '__main__':
                     os.makedirs(directory_png)
                 print(directory_png)
                 
-                FCGR_VIRUSES = FCGR_PCMER_RGB(2**(2*kmer), "", 0, list(), {}).build_fcgr(genome_viruses, kmer, type_encodingColour, threshold, fileFASTA, title, directory_png, my_list[i]) ## --RGB pcmer
+                FCGR_VIRUSES = FCGR_PCMER_RGB(2**(2*kmer), "", 0, list(), {}).build_fcgr(genome_viruses, kmer, type_encodingColour, threshold, jellyfish, fileFASTA, title, directory_png, my_list[i]) ## --RGB pcmer
                 end_time = time.time()
                 print('TIME:', end_time - start_time)
 
