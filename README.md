@@ -17,4 +17,8 @@ It is recommended to use in binary package manager such as conda, anconda or min
 **The developed software contains:**
 
 The Encoder Unit, which decodes a virolgical sequences in image through Colour Chaos Game Representation (CCGR) algorithm.
-A classification unit, consisting of deep convolutional neural networks (i.e. AlexNet and ResNet50), which predicts the class to which a virological CCGR image belongs.
+A classification unit, consisting of deep convolutional neural networks (i.e. AlexNet and ResNet50), which predicts the class to which a virological CCGR image belongs. 
+
+**Software compilation**
+
+In order to run jellyfish, multi-threader k-mers counter, it is necessary to make the binary file executable: `chmod +x CODE\ AND\ EXPERIMENTS/CGR-pcmer/jellyfish/jellyfish-binar`. Set in the `Encoder-VIRUES` file (path `/coloredFCGR/CODE AND EXPERIMENTS/CGR-pcmer/Encoder-VIRUSES`) settare jellyfish=True
