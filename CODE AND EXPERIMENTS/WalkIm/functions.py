@@ -144,9 +144,9 @@ def preprocessing(type_arch, type_encoder, dataset):
     X = []
     y = []
     if type_encoder == "Grayscale":
-      path_main = 'OUTWalkIm_' + dataset + '_GrayscaleImg/'
+      path_main = 'CODE AND EXPERIMENTS/WalkIm/OUTWalkIm_' + dataset + '_GrayscaleImg/'
     else:
-      path_main = 'OUTWalkIm_' + dataset + '_RGBImg/'
+      path_main = 'CODE AND EXPERIMENTS/WalkIm/OUTWalkIm_' + dataset + '_RGBImg/'
     os.chdir(path_main)
     dirs = filter(os.path.isdir, os.listdir(os.curdir))
     for dir in dirs:
@@ -240,10 +240,6 @@ def saveModel(dataset, model, net, type_encoder):
     os.makedirs(directory)
 
   model_file = directory + type_encoder + "model " + net + ".keras"
-
-  #with open(model_file, 'wb') as file:
-    #pickle.dump(model, file) # dump and pickle for to store the object data to the file
-    #file.close()
     
   model.save(model_file)
   print("Save Model!")
