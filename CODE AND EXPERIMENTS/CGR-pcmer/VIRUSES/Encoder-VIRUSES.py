@@ -18,8 +18,10 @@ if __name__ == '__main__':
     start_time = time.time()
 # DATASET HIV-1 (1) n_classes = 12, HIV-1 (2) n_classes = 37, DENGUE n_classes=4, CORONAVIRUSES n_classes=7, HEPATITISC n_classes=6, HEPATITIS B (1) n_classes=8, HEPATITIS B (2) n_classes=13, INFLUENZA A n_classes = 56
     
-    jellyfish = True # for used jellyfish set the flag to True
-    
+    jellyfish = False # for used jellyfish set the flag to True
+    if jellyfish == True: print('jellyfish multi-threader k-mers counter active')
+    else: print('jellyfish multi-threader k-mers counter inactive')
+
     MAIN_FOLDER = 'CODE AND EXPERIMENTS'
     out_directory = MAIN_FOLDER + '/CGR-pcmer/VIRUSES/ColoredChaosGameRepresentation_ENCODER/Viruses'
     print(out_directory)
@@ -75,7 +77,7 @@ if __name__ == '__main__':
                 fileFASTA = Subpath + '/' + onlyfiles[s]
                 genome_viruses = parse_sequence(fileFASTA)
                 title = fileFASTA.split('/')[4].split('.fasta')[0].replace('.', '-')
-                kmer = 5 # k-mers size: 4, 6, 8, and 10
+                kmer = 10 # k-mers size: 4, 6, 8, and 10
                 type_encodingColour = "kCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
                 threshold = [0, 0.5, 1]
                 
