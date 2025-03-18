@@ -41,10 +41,23 @@ def count_kmers(sequence, k):
 def count_kmers_jellyfish(fasta, k):
   my_dir = 'CODE AND EXPERIMENTS/CGR-pcmer/jellyfish/'
   cmd = my_dir + 'jellyfish-binary'
-  fasta = fasta.replace(" ", "\\ ")
 
-  subprocess.run([cmd + ' count  -m ' + str(k) +  ' -s 100M -t 10 ' + '-o ' +  my_dir + 'mer_counts.jf ' + fasta], shell=True)  # returns the exit code in unix
-  subprocess.run([cmd + ' dump ' + my_dir + 'mer_counts.jf -c > ' + my_dir + 'mer_counts_dumps.csv'], shell=True) 
+  # Ensure the binary is executable
+  if not os.access(cmd, os.X_OK):
+      print(f"Error: {cmd} not executable")
+      return
+
+    # Run the jellyfish count command
+  try:
+      subprocess.run([cmd, 'count', '-m', str(k), '-s', '100M', '-t', '10', '-o', my_dir + 'mer_counts.jf', fasta], check=True)
+      #subprocess.run([cmd + ' dump ' + my_dir + 'mer_counts.jf -c', '> ' + '], check=True) 
+      with open(my_dir + 'mer_counts_dumps.csv', 'w') as output_file:
+        # Run the jellyfish dump command and write the output to the file
+        subprocess.run([cmd, 'dump', my_dir + 'mer_counts.jf', '-c'], stdout=output_file, check=True)
+  except subprocess.CalledProcessError as e:
+      print(f"Error during command execution: {e}")
+  except PermissionError as e:
+      print(f"Permission error: {e}")
 
 
   count_kmers = pd.read_csv(my_dir + 'mer_counts_dumps.csv', delimiter = ' ', skiprows=1, header=None, low_memory=False)

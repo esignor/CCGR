@@ -19,6 +19,7 @@ if __name__ == '__main__':
 # DATASET HIV-1 (1) n_classes = 12, HIV-1 (2) n_classes = 37, DENGUE n_classes=4, CORONAVIRUSES n_classes=7, HEPATITISC n_classes=6, HEPATITIS B (1) n_classes=8, HEPATITIS B (2) n_classes=13, INFLUENZA A n_classes = 56
     
     jellyfish = True # for used jellyfish set the flag to True
+    
     MAIN_FOLDER = 'CODE AND EXPERIMENTS'
     out_directory = MAIN_FOLDER + '/CGR-pcmer/VIRUSES/ColoredChaosGameRepresentation_ENCODER/Viruses'
     print(out_directory)
@@ -75,7 +76,7 @@ if __name__ == '__main__':
                 genome_viruses = parse_sequence(fileFASTA)
                 title = fileFASTA.split('/')[4].split('.fasta')[0].replace('.', '-')
                 kmer = 5 # k-mers size: 4, 6, 8, and 10
-                type_encodingColour = "pcCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
+                type_encodingColour = "kCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
                 threshold = [0, 0.5, 1]
                 
                 directory_png = out_directory + '/' +  viruses 
