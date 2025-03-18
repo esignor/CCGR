@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/')
+sys.path.insert(1, 'CODE AND EXPERIMENTS/CCGR/')
 import VIRUSES
 
 from VIRUSES.module import *
@@ -39,7 +39,7 @@ def count_kmers(sequence, k):
 
 # count_kmers with jellyfish
 def count_kmers_jellyfish(fasta, k):
-  my_dir = 'CODE AND EXPERIMENTS/CGR-pcmer/jellyfish/'
+  my_dir = 'CODE AND EXPERIMENTS/CCGR/jellyfish/'
   cmd = my_dir + 'jellyfish-binary'
 
   # Ensure the binary is executable

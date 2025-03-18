@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/')
+sys.path.insert(1, 'CODE AND EXPERIMENTS/CCGR/')
 import VIRUSES
 
 from VIRUSES.module import *

@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/')
+sys.path.insert(1, 'CODE AND EXPERIMENTS/CCGR/')
 import VIRUSES
 from VIRUSES.module import *
 
@@ -107,14 +107,14 @@ def create_ResNet50(model, shape, nb_classes):
   
 def preprocessing(type_arch, type_encoder, dataset, k, job):
     MAIN_FOLDER = 'CODE AND EXPERIMENTS/'
-    out_directory = MAIN_FOLDER + 'CGR-pcmer/VIRUSES/'
+    out_directory = MAIN_FOLDER + 'CCGR/VIRUSES/'
 
 ## for the resize method bicubic resampling is used (default value): there is a fixed
 # number of source image pixels for each target pixel (i.e., 4*4 for bicubic) where 
 # affine transformations are applied.
     X = []
     y = []
-    path_main = out_directory + 'ColouredChaosGameRepresentation_ENCODER/' + dataset + '/' + job
+    path_main = out_directory + 'ColoredChaosGameRepresentation_ENCODER/' + dataset + '/' + job
     os.chdir(path_main)
     dirs = filter(os.path.isdir, os.listdir(os.curdir))
     for dir in dirs:
@@ -161,7 +161,7 @@ def preprocessing(type_arch, type_encoder, dataset, k, job):
     
     
 def plot_loss(history, dataset, model_net, job, batch_size, epoch):
-  directory= 'CGR-pcmer ' + dataset.split('/')[1] + ' Results/'
+  directory= 'CCGR ' + dataset.split('/')[1] + ' Results/'
   if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -174,7 +174,7 @@ def plot_loss(history, dataset, model_net, job, batch_size, epoch):
   plt.clf(); plt.close()
 
 def plot_accuracy(history, dataset, model_net, job, batch_size, epoch):
-  directory= 'CGR-pcmer ' + dataset.split('/')[1] + ' Results/'
+  directory= 'CCGR ' + dataset.split('/')[1] + ' Results/'
   if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -202,7 +202,7 @@ def metrics(X_test, y_test, model_net):
   
   
 def saveModel(dataset, model, net, type_encoder, job, batch_size, epoch):
-  directory='CGR-pcmer ' + dataset.split('/')[1] + ' Models/'
+  directory='CCGR ' + dataset.split('/')[1] + ' Models/'
   if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -216,11 +216,11 @@ def plot_loss_accuracy(history, model, X_test, y_test, dataset, model_net, job, 
   plot_accuracy(history, dataset, model_net, job, batch_size, epoch)
 
   scores = model.evaluate(X_test, y_test, verbose=2)
-  acc = "%s: %.2f%%" % (model.metrics_names[1], scores[1]*100)
+  acc = "Test %s: %.2f%%" % (model.metrics_names[1], scores[1]*100)
   return acc
   
 def saveConfMatrixClassReport(net, test_acc, training_time, conf_matrix, class_report, dataset, type_encoder, job, val_acc, batch_size, epoch):
-  directory= 'CGR-pcmer ' + dataset.split('/')[1] + ' Results/'
+  directory= 'CCGR ' + dataset.split('/')[1] + ' Results/'
   if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -231,6 +231,6 @@ def saveConfMatrixClassReport(net, test_acc, training_time, conf_matrix, class_r
     file.write('confusion matrix: \n' + str(conf_matrix) + '\n\n')
     file.write('classification report: \n' + str(class_report) + '\n')
     file.write(str(test_acc) + '\n')
-    file.write(str(val_acc))
+    file.write(str(val_acc) + " ")
     file.write(str(training_time))
     file.close()

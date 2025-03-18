@@ -1,16 +1,13 @@
 ## MODULE
-import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/')
-import VIRUSES
-from VIRUSES.module import *
+from module import *
 
 ## FUNCTIONS
-from VIRUSES.functions_Net import create_ResNet50, preprocessing, metrics, saveModel, plot_loss_accuracy, saveConfMatrixClassReport
+from functions_Net import create_ResNet50, preprocessing, metrics, saveModel, plot_loss_accuracy, saveConfMatrixClassReport
 
 if __name__ == '__main__':
       
       ## setting parameters
-      type_encoder = "RGB"
+      type_encoder = "Grayscale"
 
       dataset = 'Viruses/Coronaviruses'
       #dataset = 'Viruses/HIV1'
@@ -22,7 +19,7 @@ if __name__ == '__main__':
       #dataset = 'Viruses/InfluenzaA'
 
       k = 4 # (4, 6, 8, 10)
-      threshold = 0.5 # (0.5, 1)
+      threshold = 0
       type_encodingColour = "kCCGR"
       job = 'CCGR (k=' + str(k) + ' T=' + str(threshold) + " " + type_encodingColour + ')'
 
@@ -68,7 +65,7 @@ if __name__ == '__main__':
             print('Fold'+str(tmp)+'is finished')
       end = time.time() 
 
-      val_acc = "Validation accuracy" + str((history.history['val_accuracy'])[-1])
+      val_acc = "Validation accuracy " + str((history.history['val_accuracy'])[-1])
 
       training_time  = "model training time of ResNet50 Model with " + type_encoder + " encoder unit: " + str(end-start) + ' s'
       print(training_time)    

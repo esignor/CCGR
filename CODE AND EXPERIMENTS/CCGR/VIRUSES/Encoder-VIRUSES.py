@@ -1,7 +1,7 @@
 
 ## MODULE
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/') # my kmer-cout
+sys.path.insert(1, 'CODE AND EXPERIMENTS/CCGR/')
 import VIRUSES
 
 from VIRUSES.module import * 
@@ -16,14 +16,15 @@ import os
 
 if __name__ == '__main__':
     start_time = time.time()
-# DATASET HIV-1 (1) n_classes = 12, HIV-1 (2) n_classes = 37, DENGUE n_classes=4, CORONAVIRUSES n_classes=7, HEPATITISC n_classes=6, HEPATITIS B (1) n_classes=8, HEPATITIS B (2) n_classes=13, INFLUENZA A n_classes = 56
     
     jellyfish = False # for used jellyfish set the flag to True
+
+
     if jellyfish == True: print('jellyfish multi-threader k-mers counter active')
     else: print('jellyfish multi-threader k-mers counter inactive')
 
     MAIN_FOLDER = 'CODE AND EXPERIMENTS'
-    out_directory = MAIN_FOLDER + '/CGR-pcmer/VIRUSES/ColoredChaosGameRepresentation_ENCODER/Viruses'
+    out_directory = MAIN_FOLDER + '/CCGR/VIRUSES/ColoredChaosGameRepresentation_ENCODER/Viruses'
     print(out_directory)
     if not os.path.exists(out_directory):
         os.makedirs(out_directory)
@@ -77,8 +78,8 @@ if __name__ == '__main__':
                 fileFASTA = Subpath + '/' + onlyfiles[s]
                 genome_viruses = parse_sequence(fileFASTA)
                 title = fileFASTA.split('/')[4].split('.fasta')[0].replace('.', '-')
-                kmer = 10 # k-mers size: 4, 6, 8, and 10
-                type_encodingColour = "kCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
+                kmer = 4 # k-mers size: 4, 6, 8, and 10
+                type_encodingColour = "pcCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
                 threshold = [0, 0.5, 1]
                 
                 directory_png = out_directory + '/' +  viruses 
