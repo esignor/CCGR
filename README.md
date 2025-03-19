@@ -2,9 +2,15 @@
 
 The CCGR directory contains the implementation of the Color Chaos Game Representation (CCGR) approach. It provides an econder unit to transform virological sequences into CCGR images and a classifier unit consisting of the AlexNet and ResNet50 networks. 
 
+
+**Third-party software and libraries**
+Colour Chaos Game Representation used jellyfish (resource: https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
+In the experiments, we compared CCGR with WalkIm (resource: https://github.com/SAkbari93/WalkIm).
+
+
 **Software configuration:**
 
-The code developed in “coloredFCGR” is in Python programming language version 3.9.
+The code developed in “CCGR” is in Python programming language version 3.9.
 
 To compile the software correctly, installation of the following python libraries is required: pandas, matplotlib, scikit-learn, keras, and tensorflow.
 
@@ -52,7 +58,6 @@ A classification unit, consisting of deep convolutional neural networks (i.e. Al
 
 **Software compilation**
 
-Colour Chaos Game Representation used jellyfish (resource: https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
 In order to run jellyfish, it is necessary to make the binary file executable: 
 
 ```chmod +x dev/lib/jellyfish/jellyfish-binar```
