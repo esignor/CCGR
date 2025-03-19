@@ -59,6 +59,14 @@ A classification unit, consisting of deep convolutional neural networks (i.e. Al
 
 **Software compilation**
 
+To generate CCGR images, you need to run the `Encoder-VIRUSES` file (path `/CCGR/src/VIRUSES/Encoder-VIRUSES.py`). You can choose the dataset (from one of the options defined within the encoder), the number of k-mers and the decoding approach of the CCGR image (i.e., kCCGR or pcCCGR). CCGR images of the selected dataset with T=0, T=0.5 and T=1 will be produced.
+
+To test the classification networks, it is necessary to run the AlexNet and ResNet50 models. CCGR directory provides a model for each possible approach implemented and tested in CCGR (kCCGR and pcCCGR with T=[0, 0.5, 1]). For each model, it is possible to set not only the decoding approach but also the dataset (from one of the options defined within the model) and the number of k-mers. 
+
+We tested k-mers for sizes 4 to 10.
+
+
+
 In order to run jellyfish, it is necessary to make the binary file executable: 
 
 ```chmod +x dev/lib/jellyfish/jellyfish-binar```
