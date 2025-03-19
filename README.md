@@ -19,11 +19,15 @@ CCGR
 |_ dev
 
 |_ _ lib
+
         |_ jellyfish
 
 
 |_ _ src/VIRUSES
-        |_ moduleCCGR
+
+        |_ CCGRlib
+
+        |_ CCGR_ENCODER.py
 
         |_ Encoder.py
 
@@ -38,7 +42,7 @@ In `src` is the implementation of the CCGR approach, consisting of encoder units
 In `src/VIRUSES/module` is the implementation of the CCGR library
 
 
-In `src/VIRUSES/CCGR_encoder` are stored the virological images decoded in CCGR
+In `src/VIRUSES/CCGR_ENCODER` are stored the virological images decoded in CCGR
 
 **The developed software contains:**
 
@@ -50,6 +54,6 @@ A classification unit, consisting of deep convolutional neural networks (i.e. Al
 Colour Chaos Game Representation used jellyfish (resource: https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
 In order to run jellyfish, it is necessary to make the binary file executable: 
 
-```chmod +x CODE\ AND\ EXPERIMENTS/CGR-pcmer/jellyfish/jellyfish-binar```
+```chmod +x dev/lib/jellyfish/jellyfish-binar```
 
-Set in the `Encoder-VIRUES` file (path `/coloredFCGR/CODE AND EXPERIMENTS/CCGR/Encoder-VIRUSES`) jellyfish=True
+Set in the `Encoder-VIRUSES` file (path `/CCGR/src/VIRUSES/Encoder-VIRUSES.py`) `jellyfish=True`
