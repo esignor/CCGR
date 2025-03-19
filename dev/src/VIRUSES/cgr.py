@@ -1,7 +1,7 @@
 # reference for develop CGR "Chaos game representation and its applications in bioinformatics", Hannah Franziska Löchel, Dominik Heider
 
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/')
+sys.path.insert(1, 'dev/src/')
 import VIRUSES
 from VIRUSES.module import *
 from VIRUSES.coord import Coord

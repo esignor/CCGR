@@ -1,12 +1,12 @@
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CCGR/')
+sys.path.insert(1, 'dev/src/')
 import VIRUSES
 
 from VIRUSES.module import *
 from VIRUSES.pcmer import PCmer
 from VIRUSES.fcgr import FCGR
 from VIRUSES.cgr import CGR
-from VIRUSES.functions_CGR_PCMER import encodingColour, encodingColourNORIPETITIONS, ratioFreq, findFreqKmer, countPresence, max_freqPCMER, count_kmers, count_kmers_jellyfish
+from VIRUSES.functions_CGR_PCMER import encodingColour, ratioFreq, count_kmers, count_kmers_jellyfish
 
 class FCGR_PCMER_RGB(FCGR, PCmer):
     def __init__(self, n, seq = "", kmer = 0, kmer_freq = list(), kmers_rgb = {}):
@@ -405,7 +405,6 @@ class FCGR_PCMER_RGB(FCGR, PCmer):
     
 
     def build_fcgr(self, seq, k, type_encodingColour, thresholds, jellyfish, fileFASTA, title = None, directory = None, dir_classes = None, flag_design_gs = False):
-        print('Jellyfish', jellyfish)
         if "kCCGR" in type_encodingColour:
             self.build_fcgr_pcmerMAXFREQUENCYFCGR(seq, k, thresholds, jellyfish, fileFASTA)
         elif "pcCCGR" in type_encodingColour:

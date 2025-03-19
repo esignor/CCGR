@@ -1,6 +1,6 @@
 
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CGR-pcmer/')
+sys.path.insert(1, 'dev/src/')
 import VIRUSES
 
 from VIRUSES.module import *

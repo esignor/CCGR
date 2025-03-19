@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CCGR/')
+sys.path.insert(1, 'dev/src/')
 import VIRUSES
 
 from VIRUSES.module import *
@@ -39,7 +39,7 @@ def count_kmers(sequence, k):
 
 # count_kmers with jellyfish
 def count_kmers_jellyfish(fasta, k):
-  my_dir = 'CODE AND EXPERIMENTS/CCGR/jellyfish/'
+  my_dir = 'dev/lib/jellyfish/'
   cmd = my_dir + 'jellyfish-binary'
 
   # Ensure the binary is executable
@@ -102,10 +102,6 @@ def countPresence(l):
   for j in l:
     if j == char_one: count_one += 1
     else: count_two += 1     
-  #print('char_uno', char_one)
-  #print('char_due', char_two)
-  #print('count char_uno', count_one)
-  #print('count char_due', count_two)
   return count_one, count_two, char_one, char_two 
 
 # ADDITIONAL EXPERIMENTS

@@ -9,14 +9,14 @@ if __name__ == '__main__':
       ## setting parameters
       type_encoder = "RGB"
 
-      dataset = 'Viruses/Coronaviruses'
-      #dataset = 'Viruses/HIV1'
-      #dataset = 'Viruses/HIV2'
+      dataset = 'Coronaviruses'
+      #dataset = 'HIV1'
+      #dataset = 'HIV2'
       #dataset = 'Viruses/Dengue'
-      #dataset = 'Viruses/HepatitisC'
-      #dataset = 'Viruses/HepatitisB1'
-      #dataset = 'Viruses/HepatitisB2'
-      #dataset = 'Viruses/InfluenzaA'
+      #dataset = 'HepatitisC'
+      #dataset = 'HepatitisB1'
+      #dataset = 'HepatitisB2'
+      #dataset = 'InfluenzaA'
      
       k = 4 # (4, 6, 8, 10)
       threshold = 0 # (0, 0.5, 1)

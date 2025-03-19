@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, 'CODE AND EXPERIMENTS/CCGR/')
+sys.path.insert(1, 'dev/src/')
 import VIRUSES
 from VIRUSES.module import *
 
@@ -106,15 +106,15 @@ def create_ResNet50(model, shape, nb_classes):
 
   
 def preprocessing(type_arch, type_encoder, dataset, k, job):
-    MAIN_FOLDER = 'CODE AND EXPERIMENTS/'
-    out_directory = MAIN_FOLDER + 'CCGR/VIRUSES/'
+    MAIN_FOLDER = 'dev/'
+    out_directory = MAIN_FOLDER + 'src/VIRUSES/'
 
 ## for the resize method bicubic resampling is used (default value): there is a fixed
 # number of source image pixels for each target pixel (i.e., 4*4 for bicubic) where 
 # affine transformations are applied.
     X = []
     y = []
-    path_main = out_directory + 'ColoredChaosGameRepresentation_ENCODER/' + dataset + '/' + job
+    path_main = out_directory + 'CCGR_ENCODER/' + dataset + '/' + job
     os.chdir(path_main)
     dirs = filter(os.path.isdir, os.listdir(os.curdir))
     for dir in dirs:
@@ -142,7 +142,7 @@ def preprocessing(type_arch, type_encoder, dataset, k, job):
             X.append(np_frame)
             y.append(path_to_subdir.split('.')[0])
     
-    os.chdir('../../../../')
+    os.chdir('../../../')
     unique = list(dict.fromkeys(y))
     dct = {}
     cnt = 0
