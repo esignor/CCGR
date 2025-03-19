@@ -33,7 +33,8 @@ It is recommended to use in binary package manager such as conda, anconda or min
 
        |_ AlexNet.py
 
-        |_ ResNet.py```
+        |_ ResNet.py
+```
 
 In `lib` is contained the jellyfish binary file
 
