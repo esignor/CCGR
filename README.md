@@ -19,7 +19,7 @@ Also required are the main python packages for scientific computing (numpy), mod
 
 It is recommended to use in binary package manager such as conda, anconda or miniconda to create a system-level environment independent of the machine's operating system.
 
-**File Hierarchy:**
+**File hierarchy:**
 
 ```CCGR
 
