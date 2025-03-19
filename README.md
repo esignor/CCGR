@@ -3,7 +3,8 @@
 The CCGR directory contains the implementation of the Color Chaos Game Representation (CCGR) approach. It provides an econder unit to transform virological sequences into CCGR images and a classifier unit consisting of the AlexNet and ResNet50 networks. 
 
 
-**Third-party software and libraries**
+**Third-party software and libraries:**
+
 Colour Chaos Game Representation used jellyfish (resource: https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
 In the experiments, we compared CCGR with WalkIm (resource: https://github.com/SAkbari93/WalkIm).
 
