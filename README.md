@@ -14,26 +14,26 @@ It is recommended to use in binary package manager such as conda, anconda or min
 
 **File Hierarchy**
 
-`CCGR`
+```CCGR
 
-`|_ dev`
+|_ dev
 
-`|_ _ lib`
+|_ _ lib
 
-`        |_ jellyfish`
+        |_ jellyfish
 
 
-`|_ _ src/VIRUSES`
+|_ _ src/VIRUSES
 
-`        |_ CCGRlib`
+        |_ CCGRlib
 
-`        |_ CCGR_ENCODER.py`
+        |_ CCGR_ENCODER.py
 
-`        |_ Encoder.py`
+        |_ Encoder.py
 
-`       |_ AlexNet.py`
+       |_ AlexNet.py
 
-`        |_ ResNet.py`
+        |_ ResNet.py
 
 In `lib` is contained the jellyfish binary file
 
