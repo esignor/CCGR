@@ -38,7 +38,7 @@ It is recommended to use in binary package manager such as conda, anconda or min
 
         |_ Encoder.py
 
-       |_ AlexNet.py
+        |_ AlexNet.py
 
         |_ ResNet.py
 ```
