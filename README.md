@@ -5,8 +5,8 @@ The CCGR directory contains the implementation of the Color Chaos Game Represent
 
 **Third-party software and libraries:**
 
-Colour Chaos Game Representation used jellyfish (resource: https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
-In the experiments, we compared CCGR with WalkIm (resource: https://github.com/SAkbari93/WalkIm).
+Colour Chaos Game Representation used jellyfish (https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
+In the experiments, we compared CCGR with WalkIm (https://github.com/SAkbari93/WalkIm).
 
 
 **Software configuration:**
@@ -57,7 +57,7 @@ In `src/VIRUSES/CCGR_ENCODER` are stored the virological images decoded in CCGR
 The Encoder Unit, which decodes a virolgical sequences in image through Colour Chaos Game Representation (CCGR) algorithm.
 A classification unit, consisting of deep convolutional neural networks (i.e. AlexNet and ResNet50), which predicts the class to which a virological CCGR image belongs. 
 
-**Software compilation**
+**Software compilation:**
 
 To generate CCGR images, you need to run the `Encoder-VIRUSES` file (path `/CCGR/src/VIRUSES/Encoder-VIRUSES.py`). You can choose the dataset (from one of the options defined within the encoder), the number of k-mers and the decoding approach of the CCGR image (i.e., kCCGR or pcCCGR). CCGR images of the selected dataset with T=0, T=0.5 and T=1 will be produced.
 
