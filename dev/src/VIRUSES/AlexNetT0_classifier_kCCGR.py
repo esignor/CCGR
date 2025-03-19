@@ -1,8 +1,8 @@
 ## MODULE
-from module import *
+from CCGRlib.module import *
 
 ## FUNCTIONS
-from functions_Net import create_AlexNet, preprocessing, metrics, saveModel, plot_loss_accuracy, saveConfMatrixClassReport
+from CCGRlib.functions_Net import create_AlexNet, preprocessing, metrics, saveModel, plot_loss_accuracy, saveConfMatrixClassReport
 
 if __name__ == '__main__':
     

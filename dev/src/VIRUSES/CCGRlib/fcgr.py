@@ -1,11 +1,11 @@
 import sys
 sys.path.insert(1, 'dev/src/')
-from module import *
+from CCGRlib.module import *
 import VIRUSES
 
-from VIRUSES.cgr import CGR
-from VIRUSES.pcmer import PCmer
-from VIRUSES.functions_CGR_PCMER import count_kmers
+from VIRUSES.CCGRlib.cgr import CGR
+from VIRUSES.CCGRlib.pcmer import PCmer
+from VIRUSES.CCGRlib.functions_CGR_PCMER import count_kmers
 
 ## fcgr algorithms
 

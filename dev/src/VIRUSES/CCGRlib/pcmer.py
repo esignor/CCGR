@@ -3,8 +3,8 @@ import sys
 sys.path.insert(1, 'dev/src/')
 import VIRUSES
 
-from VIRUSES.module import *
-from VIRUSES.functions_CGR_PCMER import count_kmers
+from VIRUSES.CCGRlib.module import *
+from VIRUSES.CCGRlib.functions_CGR_PCMER import count_kmers
 
 class PCmer:
   def __init__(self, n):

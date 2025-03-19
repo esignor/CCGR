@@ -2,11 +2,11 @@ import sys
 sys.path.insert(1, 'dev/src/')
 import VIRUSES
 
-from VIRUSES.module import *
-from VIRUSES.pcmer import PCmer
-from VIRUSES.fcgr import FCGR
-from VIRUSES.cgr import CGR
-from VIRUSES.functions_CGR_PCMER import encodingColour, ratioFreq, count_kmers, count_kmers_jellyfish
+from VIRUSES.CCGRlib.module import *
+from VIRUSES.CCGRlib.pcmer import PCmer
+from VIRUSES.CCGRlib.fcgr import FCGR
+from VIRUSES.CCGRlib.cgr import CGR
+from VIRUSES.CCGRlib.functions_CGR_PCMER import encodingColour, ratioFreq, count_kmers, count_kmers_jellyfish
 
 class FCGR_PCMER_RGB(FCGR, PCmer):
     def __init__(self, n, seq = "", kmer = 0, kmer_freq = list(), kmers_rgb = {}):

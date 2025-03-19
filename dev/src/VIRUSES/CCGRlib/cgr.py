@@ -3,8 +3,8 @@
 import sys
 sys.path.insert(1, 'dev/src/')
 import VIRUSES
-from VIRUSES.module import *
-from VIRUSES.coord import Coord
+from VIRUSES.CCGRlib.module import *
+from VIRUSES.CCGRlib.coord import Coord
 
 
 # [tuple(x_coord, y_coord, cgr_point)]

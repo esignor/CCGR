@@ -4,11 +4,11 @@ import sys
 sys.path.insert(1, 'dev/src/')
 import VIRUSES
 
-from VIRUSES.module import * 
-from VIRUSES.cgr import CGR
-from VIRUSES.fcgr import FCGR, FCGR_RGB
-from VIRUSES.fcgr_pcmer_rgb import FCGR_PCMER_RGB
-from VIRUSES.functions_CGR_PCMER import parse_sequence
+from VIRUSES.CCGRlib.module import * 
+from VIRUSES.CCGRlib.cgr import CGR
+from VIRUSES.CCGRlib.fcgr import FCGR, FCGR_RGB
+from VIRUSES.CCGRlib.fcgr_pcmer_rgb import FCGR_PCMER_RGB
+from VIRUSES.CCGRlib.functions_CGR_PCMER import parse_sequence
 
 from os import listdir
 from os.path import isfile, join
@@ -17,10 +17,10 @@ import os
 if __name__ == '__main__':
     start_time = time.time()
     
-    jellyfish = False # for used jellyfish set the flag to True
+    jellyfish = True # for used jellyfish set the flag to True
 
 
-    if jellyfish == True: print('jellyfish multi-threader k-mers counter active')
+    if jellyfish == False: print('jellyfish multi-threader k-mers counter active')
     else: print('jellyfish multi-threader k-mers counter inactive')
 
     MAIN_FOLDER = 'dev'
@@ -78,8 +78,8 @@ if __name__ == '__main__':
                 fileFASTA = Subpath + '/' + onlyfiles[s]
                 genome_viruses = parse_sequence(fileFASTA)
                 title = fileFASTA.split('/')[4].split('.fasta')[0].replace('.', '-')
-                kmer = 4 # k-mers size: 4, 6, 8, and 10
-                type_encodingColour = "kCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
+                kmer = 6 # k-mers size: 4, 6, 8, and 10
+                type_encodingColour = "pcCCGR" # Colour Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
                 threshold = [0, 0.5, 1]
                 
                 directory_png = out_directory + '/' +  viruses 

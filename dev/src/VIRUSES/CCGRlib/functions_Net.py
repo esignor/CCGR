@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(1, 'dev/src/')
 import VIRUSES
-from VIRUSES.module import *
+from VIRUSES.CCGRlib.module import *
 
 def create_AlexNet(model, shape, nb_classes):
   model.add(layers.Conv2D(filters=96, kernel_size=(11, 11), strides=(4, 4), activation="relu", input_shape= shape))

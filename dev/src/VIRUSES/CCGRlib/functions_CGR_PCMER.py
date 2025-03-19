@@ -2,8 +2,8 @@ import sys
 sys.path.insert(1, 'dev/src/')
 import VIRUSES
 
-from VIRUSES.module import *
-from VIRUSES.cgr import CGR
+from VIRUSES.CCGRlib.module import *
+from VIRUSES.CCGRlib.cgr import CGR
 import collections
 from collections import OrderedDict
 
