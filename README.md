@@ -79,4 +79,6 @@ In order to run jellyfish, it is necessary to make the binary file executable. I
 
 ```chmod +x dev/lib/jellyfish/jellyfish-binary```
 
-Set in the `Encoder-VIRUSES` file (path `/CCGR/src/VIRUSES/Encoder-VIRUSES.py`) `jellyfish=True`
+Set in the `Encoder-VIRUSES` file (path `CCGR/dev/src/VIRUSES/Encoder-VIRUSES.py`) `jellyfish=True`
+
+At the end of a model run the trained model is saved in `CCGR/dev/src/VIRUSES/CCGR [NAME DATASET] Models` and the results of the training in `CCGR/dev/src/VIRUSES/CCGR [NAME DATASET] Results`.
