@@ -42,21 +42,6 @@ class FCGR:
       self.__set_kmer_freq(i, 0, 0)
       
 
-  #def __set_kmer_freq(self, matrix_fcgr, seq_fcgr):
-  #  list_freq = list()
-  #  for j in matrix_fcgr:
-  #    for j_i in j:
-  #      freq = j_i
-  #      list_freq.append(freq)
-    
-  #  list_seq = list()
-  #  for j in seq_fcgr:
-  #   for j_i in j:
-  #      seq = j_i
-  #     list_seq.append(seq)
-  #  for i in range(0, len(list_freq)):
-  #    self.kmer_freq.append([list_seq[i], list_freq[i]])
-
   def tot_freq(self):
     totFreq = 0
     for kmer_freq in self.kmer_freq:
@@ -78,12 +63,6 @@ class FCGR:
     fig, (ax) = plt.subplots(1, 1, figsize=(20, 18))
     k = self.kmer
     im = ax.imshow(matrix_fcgr, interpolation='nearest', cmap=cm.gray_r)
-    # Loop over data dimensions and create text annotations.
-    #for i in range(int(math.sqrt(2**(2*k)))):
-      #for j in range(int(math.sqrt(2**(2*k)))):
-          #if k <= 2:
-            #text = ax.text(j, i, str(seq_fcgr[i][j]) + '(' + str(matrix_fcgr[i][j]) + ')', fontsize = 25,
-                           #ha="center", va="center", color="c", fontweight = 'bold')
     ax.axes.xaxis.set_visible(False)
     ax.axes.yaxis.set_visible(False)
     #ax.set_title(title + ', k = ' + str(k), fontsize=35)
