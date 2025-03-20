@@ -21,7 +21,8 @@ It is recommended to use in binary package manager such as conda, anconda or min
 
 **File hierarchy:**
 
-```CCGR
+```
+CCGR
 
 |_ dev
 
