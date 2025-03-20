@@ -10,17 +10,17 @@ if __name__ == '__main__':
       type_encoder = "RGB"
 
       dataset = 'Coronaviruses'
-      #dataset = 'HIV1'
-      #dataset = 'HIV2'
-      #dataset = 'Dengue'
-      #dataset = 'HepatitisC'
-      #dataset = 'HepatitisB1'
-      #dataset = 'HepatitisB2'
-      #dataset = 'InfluenzaA'
+      #dataset = HIV1'
+      #dataset = HIV2'
+      #dataset = Dengue'
+      #dataset = HepatitisC'
+      #dataset = HepatitisB1'
+      #dataset = HepatitisB2'
+      #dataset = InfluenzaA'
 
       k = 4 # (4, 6, 8, 10)
-      threshold = 0.5 # (0.5, 1)
-      type_encodingColour = "kCCGR"
+      threshold = 1 # (0, 0.5, 1)
+      type_encodingColour = "pcCCGR"
       job = 'CCGR (k=' + str(k) + ' T=' + str(threshold) + " " + type_encodingColour + ')'
 
 
@@ -65,7 +65,7 @@ if __name__ == '__main__':
             print('Fold'+str(tmp)+'is finished')
       end = time.time() 
 
-      val_acc = "Validation accuracy " + str((history.history['val_accuracy'])[-1])
+      val_acc = "Validation accuracy " + str(round((history.history['val_accuracy'])[-1]*100, 2)) + "%"
 
       training_time  = "model training time of ResNet50 Model with " + type_encoder + " encoder unit: " + str(end-start) + ' s'
       print(training_time)    

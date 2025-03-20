@@ -65,7 +65,7 @@ if __name__ == '__main__':
             print('Fold'+str(tmp)+'is finished')
       end = time.time() 
 
-      val_acc = "Validation accuracy " + str((history.history['val_accuracy'])[-1])
+      val_acc = "Validation accuracy " + str(round((history.history['val_accuracy'])[-1]*100, 2)) + "%"
 
       training_time  = "model training time of AlexNet Model with " + type_encoder + " encoder unit: " + str(end-start) + ' s'
       print(training_time)    

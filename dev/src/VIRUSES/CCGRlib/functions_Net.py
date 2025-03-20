@@ -161,7 +161,7 @@ def preprocessing(type_arch, type_encoder, dataset, k, job):
     
     
 def plot_loss(history, dataset, model_net, job, batch_size, epoch):
-  directory= 'CCGR ' + dataset.split('/')[1] + ' Results/'
+  directory= 'CCGR ' + dataset + ' Results/'
   if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -174,7 +174,7 @@ def plot_loss(history, dataset, model_net, job, batch_size, epoch):
   plt.clf(); plt.close()
 
 def plot_accuracy(history, dataset, model_net, job, batch_size, epoch):
-  directory= 'CCGR ' + dataset.split('/')[1] + ' Results/'
+  directory= 'CCGR ' + dataset + ' Results/'
   if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -202,7 +202,7 @@ def metrics(X_test, y_test, model_net):
   
   
 def saveModel(dataset, model, net, type_encoder, job, batch_size, epoch):
-  directory='CCGR ' + dataset.split('/')[1] + ' Models/'
+  directory='CCGR ' + dataset + ' Models/'
   if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -220,7 +220,7 @@ def plot_loss_accuracy(history, model, X_test, y_test, dataset, model_net, job, 
   return acc
   
 def saveConfMatrixClassReport(net, test_acc, training_time, conf_matrix, class_report, dataset, type_encoder, job, val_acc, batch_size, epoch):
-  directory= 'CCGR ' + dataset.split('/')[1] + ' Results/'
+  directory= 'CCGR ' + dataset + ' Results/'
   if not os.path.exists(directory):
     os.makedirs(directory)
 
