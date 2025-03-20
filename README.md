@@ -36,26 +36,33 @@ It is recommended to use in binary package manager such as conda, anconda or min
 
         |_ CCGR_ENCODER
 
-        |_ Encoder.py
+        |_ Encoder-VIRUSES.py
 
-        |_ AlexNet.py
+        |_ AlexNet*.py
 
-        |_ ResNet.py
+        |_ ResNet*.py
 ```
 
 In `lib` is contained the jellyfish binary file
 
 In `src` is the implementation of the CCGR approach, consisting of encoder units and classifier units
 
-In `src/VIRUSES/module` is the implementation of the CCGR library
-
+In `src/VIRUSES/CCGRlib`  is the implementation of the CCGR library
 
 In `src/VIRUSES/CCGR_ENCODER` are stored the virological images decoded in CCGR
+
+`Encoder-VIRUSES.py` is the implementation of the CCGR Encoder unit
+
+`AlexNet*.py` and `ResNet*.py` are the implementation of the CCGR Network unit
+
+
+
+
 
 **The developed software contains:**
 
 The Encoder Unit, which decodes a virolgical sequences in image through Colour Chaos Game Representation (CCGR) algorithm.
-A classification unit, consisting of deep convolutional neural networks (i.e. AlexNet and ResNet50), which predicts the class to which a virological CCGR image belongs. 
+A Network unit, consisting of deep convolutional neural networks (i.e. AlexNet and ResNet50), which predicts the class to which a virological CCGR image belongs. 
 
 **Software compilation:**
 
@@ -67,8 +74,8 @@ We tested k-mers for sizes 4 to 10.
 
 
 
-In order to run jellyfish, it is necessary to make the binary file executable: 
+In order to run jellyfish, it is necessary to make the binary file executable. In `CCGR` directory:
 
-```chmod +x dev/lib/jellyfish/jellyfish-binar```
+```chmod +x dev/lib/jellyfish/jellyfish-binary```
 
 Set in the `Encoder-VIRUSES` file (path `/CCGR/src/VIRUSES/Encoder-VIRUSES.py`) `jellyfish=True`
