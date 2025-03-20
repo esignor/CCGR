@@ -34,7 +34,7 @@ It is recommended to use in binary package manager such as conda, anconda or min
 
         |_ CCGRlib
 
-        |_ CCGR_ENCODER.py
+        |_ CCGR_ENCODER
 
         |_ Encoder.py
 
