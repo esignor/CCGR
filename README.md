@@ -71,7 +71,7 @@ To generate CCGR images, you need to run the `Encoder-VIRUSES` file (path `/CCGR
 
 To test the classification networks, it is necessary to run the AlexNet and ResNet50 models. CCGR directory provides a model for each possible approach implemented and tested in CCGR (kCCGR and pcCCGR with T=[0, 0.5, 1]). For each model, it is possible to set not only the coloring schema approach but also the dataset (from one of the options defined within the model) and the size of *k*-mers. 
 
-We tested k-mers for sizes 4 to 10.
+We tested *k*-mers for sizes 4 to 10.
 
 
 
