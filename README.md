@@ -1,6 +1,6 @@
 # CCGR
 
-The CCGR directory contains the implementation of the Color Chaos Game Representation (CCGR) approach. It provides an econder unit to transform virological sequences into CCGR images and a classifier unit consisting of the AlexNet and ResNet50 networks. 
+The CCGR directory contains the implementation of the Color Chaos Game Representation (CCGR) approach. It provides an Econder unit to transform virological sequences into CCGR images and a Network unit consisting of the AlexNet and ResNet50 networks. 
 
 
 **Third-party software and libraries:**
