@@ -67,7 +67,7 @@ A Network unit, consisting of Deep Convolutional Neural Networks (i.e. AlexNet a
 
 **Software compilation:**
 
-To generate CCGR images, you need to run the `Encoder-VIRUSES` file (path `/CCGR/src/VIRUSES/Encoder-VIRUSES.py`). You can choose the dataset (from one of the options defined within the encoder), the number of *k*-mers and the decoding approach of the CCGR image (i.e., kCCGR or pcCCGR). CCGR images of the selected dataset with thresholds T=0, T=0.5, and T=1 will be produced.
+To generate CCGR images, you need to run the `Encoder-VIRUSES` file (path `/CCGR/src/VIRUSES/Encoder-VIRUSES.py`). You can choose the dataset (from one of the options defined within the encoder), the size of *k*-mers and the decoding approach of the CCGR image (i.e., kCCGR or pcCCGR). CCGR images of the selected dataset with thresholds T=0, T=0.5, and T=1 will be produced.
 
 To test the classification networks, it is necessary to run the AlexNet and ResNet50 models. CCGR directory provides a model for each possible approach implemented and tested in CCGR (kCCGR and pcCCGR with T=[0, 0.5, 1]). For each model, it is possible to set not only the coloring schema approach but also the dataset (from one of the options defined within the model) and the size of *k*-mers. 
 
