@@ -5,7 +5,7 @@ The CCGR directory contains the implementation of the Color Chaos Game Represent
 
 **Third-party software and libraries:**
 
-Color Chaos Game Representation used jellyfish (https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
+Color Chaos Game Representation used Jellyfish (https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
 In the experiments, we compared CCGR with WalkIm (https://github.com/SAkbari93/WalkIm).
 
 
@@ -75,7 +75,7 @@ We tested *k*-mers for sizes 4 to 10.
 
 
 
-In order to run jellyfish, it is necessary to make the binary file executable. In `CCGR` directory:
+In order to run Jellyfish, it is necessary to make the binary file executable. In `CCGR` directory:
 
 ```chmod +x dev/lib/jellyfish/jellyfish-binary```
 
