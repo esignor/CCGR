@@ -17,7 +17,7 @@ import os
 if __name__ == '__main__':
     start_time = time.time()
     
-    jellyfish = True # for used jellyfish set the flag to True
+    jellyfish = False # for used jellyfish set the flag to True
 
 
     if jellyfish == False: print('jellyfish multi-threader k-mers counter active')
