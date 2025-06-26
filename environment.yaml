@@ -1,15 +1,18 @@
-name: ccgr_env_cpu
+name: ccgr_env
 channels:
   - conda-forge
   - bioconda
   - defaults
 dependencies:
-  - python>=3.9
+  - python=3.9
   - pandas
   - matplotlib
   - scikit-learn
-  - keras
-  - tensorflow=2.13.*
+  - keras=2.11
+  - tensorflow=2.11
+  - pillow
   - pip
   - pip:
     - Pillow
+
+

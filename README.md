@@ -34,7 +34,7 @@ cd CCGR
 You can install CCGR with either CPU or GPU support, depending on your system and available hardware.
 From TensorFlow 2.0 onwards, the tensorflow package works on both CPU and GPU.
 
-**System Compatibility and Hardware Requirements:**
+**System Compatibility and Hardware Requirements**
 
 This software supports both GPU-accelerated and CPU-only execution using TensorFlow.
 
@@ -51,7 +51,7 @@ These requirements align with the TensorFlow version specified in the environmen
 
 - Modern x86_64 compatible CPU
 - At least 8 GB of RAM (more recommended for large datasets)
-- Python 3.9 or higher installed
+- Python 3.9
 
 While CPU execution is supported and suitable for testing or smaller datasets, GPU acceleration is strongly recommended for faster processing and handling of large genomic datasets.
 
@@ -78,6 +78,7 @@ conda activate ccgr_env
 
 
 🟦 **Option 2 – Install via pip (lightweight alternative)**
+
 If you prefer using `pip` instead of Conda, you can install the required dependencies using the `requirements.txt` file.
 
 1. Create a virtual environment (recommended):
