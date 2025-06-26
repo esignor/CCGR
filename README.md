@@ -21,29 +21,29 @@ It is recommended to use in binary package manager such as conda, anconda or min
 
 **Installation:**
 
-***installation with a Conda environment***
-
-To create the environment and install the required dependencies using Conda:
-
-1. Download or clone this repository:
+Download or clone this repository:
 ```
 git clone https://github.com/esignor/CCGR.git
 cd CCGR
 ```
 
-2. Create the Conda environment:
+***installation with a Conda environment***
+
+To create the environment and install the required dependencies using Conda:
+
+1. Create the Conda environment:
 
 ```
 conda env create -f environment.yaml
 ```
 
-3. Activate the environment:
+2. Activate the environment:
 
 ```
 conda activate ccgr_env
 ```
 
-4. You are now ready to run the CCGR scripts
+You are now ready to run the CCGR scripts
 
 ***alternative Installation with pip***
 
@@ -61,7 +61,7 @@ source ccgr_env/bin/activate  # On Windows: ccgr_env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-3. You are now ready to run the CCGR scripts
+You are now ready to run the CCGR scripts
 
 
 **File hierarchy:**
@@ -74,7 +74,6 @@ CCGR/
 |_ dev/
         |_ _ lib/
                 |_ jellyfish
-
         |_ _ src/VIRUSES/
                 |_ CCGR_ENCODER/
                 |_ CCGRlib/
