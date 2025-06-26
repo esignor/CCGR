@@ -1,5 +1,7 @@
+tensorflow==2.13.*
 pandas
 matplotlib
 scikit-learn
 keras
-tensorflow
+numpy
+Pillow
