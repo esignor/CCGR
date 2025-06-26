@@ -1,0 +1,10 @@
+name: ccgr_env
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.9
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - keras
+  - tensorflow
