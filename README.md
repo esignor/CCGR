@@ -10,16 +10,19 @@ In the experiments, we compared CCGR with WalkIm (https://github.com/SAkbari93/W
 
 **Software configuration:**
 
-The code developed in “CCGR” is in Python programming language version 3.9.
+The code in **CCGR** is developed in Python **3.9**.
 
-To compile the software correctly, installation of the following python libraries is required: pandas, matplotlib, scikit-learn, keras, and tensorflow.
+To run the software, the following Python libraries are required:
 
-Also required are the main python packages for scientific computing (numpy), modules for implementing container data types (collections), asynchronous function execution (ProcessPoolExecutor) and image module (Pillow).
+`pandas`, `matplotlib`, `scikit-learn`, `keras`, `tensorflow`
 
-It is recommended to use in binary package manager such as conda, anconda or miniconda to create a system-level environment independent of the machine's operating system.
+Additional packages: `numpy`, `collections`, `concurrent.futures` (e.g. `ProcessPoolExecutor`), and `Pillow` for image processing.
 
+We recommend using a binary package manager such as **Conda**, Anaconda, or Miniconda to create an isolated environment, independent of your operating system
 
 **Installation:**
+
+📥 Clone the Repository
 
 Download or clone this repository:
 ```
@@ -27,11 +30,36 @@ git clone https://github.com/esignor/CCGR.git
 cd CCGR
 ```
 
-***installation with a Conda environment***
+You can install CCGR with either CPU or GPU support, depending on your system and available hardware.
+From TensorFlow 2.0 onwards, the tensorflow package works on both CPU and GPU.
 
-To create the environment and install the required dependencies using Conda:
+🔧 System Compatibility and Hardware Requirements:
 
-1. Create the Conda environment:
+This software supports both GPU-accelerated and CPU-only execution using TensorFlow.
+
+*GPU Support:* For GPU acceleration, the following hardware and software requirements must be met:
+
+- NVIDIA GPU (compatible with CUDA)
+- CUDA Toolkit version 11.8 or higher
+- cuDNN version 8.6 or higher
+- NVIDIA driver version 450 or higher
+
+These requirements align with the TensorFlow version specified in the environment and requirements files (e.g., TensorFlow 2.13). Meeting these specifications enables GPU acceleration for optimal performance.
+
+*CPU Support:* The software can run on CPU-only systems without a GPU. Recommended hardware specifications for CPU execution include:
+
+- Modern x86_64 compatible CPU
+- At least 8 GB of RAM (more recommended for large datasets)
+- Python 3.9 or higher installed
+
+While CPU execution is supported and suitable for testing or smaller datasets, GPU acceleration is strongly recommended for faster processing and handling of large genomic datasets.
+
+
+
+🟩 Option 1 – Install via Conda (recommended for full reproducibility)
+
+
+1. Create the environment:
 
 ```
 conda env create -f environment.yaml
@@ -43,25 +71,29 @@ conda env create -f environment.yaml
 conda activate ccgr_env
 ```
 
-You are now ready to run the CCGR scripts
+✅ You’re now ready to run the CCGR scripts.
 
-***alternative Installation with pip***
+*Note: On systems with limited memory, Conda may crash during installation. In that case, we recommend using the pip-based installation below.*
 
+
+🟦 Option 2 – Install via pip (lightweight alternative)
 If you prefer using `pip` instead of Conda, you can install the required dependencies using the `requirements.txt` file.
 
-1. It is recommended to use a virtual environment (optional but best practice):
+1. Create a virtual environment (recommended):
 
 ```
 python -m venv ccgr_env
 source ccgr_env/bin/activate  # On Windows: ccgr_env\Scripts\activate
 ```
 
-2. Install the dependencies:
+2. Install the required packages:
+
+
 ```
 pip install -r requirements.txt
 ```
 
-You are now ready to run the CCGR scripts
+✅ You’re now ready to run the CCGR scripts.
 
 
 **File hierarchy:**
