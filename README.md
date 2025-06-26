@@ -3,12 +3,12 @@
 The CCGR directory contains the implementation of the Color Chaos Game Representation (CCGR) approach. It provides an Econder unit to transform virological sequences into CCGR images and a Network unit consisting of the AlexNet and ResNet50 networks. 
 
 
-**Third-party software and libraries:**
+## Third-party software and libraries:
 
 Color Chaos Game Representation used Jellyfish (https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
 In the experiments, we compared CCGR with WalkIm (https://github.com/SAkbari93/WalkIm).
 
-**Software configuration:**
+## Software configuration:
 
 The code in **CCGR** is developed in Python **3.9**.
 
@@ -20,9 +20,10 @@ Additional packages: `numpy`, `collections`, `concurrent.futures` (e.g. `Process
 
 We recommend using a binary package manager such as **Conda**, Anaconda, or Miniconda to create an isolated environment, independent of your operating system
 
-**Installation:**
 
-📥 Clone the Repository
+## Installation:
+
+**Clone the Repository**
 
 Download or clone this repository:
 ```
@@ -33,7 +34,7 @@ cd CCGR
 You can install CCGR with either CPU or GPU support, depending on your system and available hardware.
 From TensorFlow 2.0 onwards, the tensorflow package works on both CPU and GPU.
 
-🔧 System Compatibility and Hardware Requirements:
+**System Compatibility and Hardware Requirements:**
 
 This software supports both GPU-accelerated and CPU-only execution using TensorFlow.
 
@@ -56,7 +57,7 @@ While CPU execution is supported and suitable for testing or smaller datasets, G
 
 
 
-🟩 Option 1 – Install via Conda (recommended for full reproducibility)
+🟩 **Option 1 – Install via Conda (recommended for full reproducibility)**
 
 
 1. Create the environment:
@@ -76,7 +77,7 @@ conda activate ccgr_env
 *Note: On systems with limited memory, Conda may crash during installation. In that case, we recommend using the pip-based installation below.*
 
 
-🟦 Option 2 – Install via pip (lightweight alternative)
+🟦 **Option 2 – Install via pip (lightweight alternative)**
 If you prefer using `pip` instead of Conda, you can install the required dependencies using the `requirements.txt` file.
 
 1. Create a virtual environment (recommended):
@@ -96,7 +97,7 @@ pip install -r requirements.txt
 ✅ You’re now ready to run the CCGR scripts.
 
 
-**File hierarchy:**
+## File hierarchy:
 
 ```
 CCGR/
@@ -130,12 +131,12 @@ In `src/VIRUSES/CCGR_ENCODER` are stored the virological images decoded in CCGR
 
 
 
-**The developed software contains:**
+## The developed software contains:
 
 The Encoder unit, which decodes a virolgical sequences in image through Color Chaos Game Representation (CCGR) algorithm.
 A Network unit, consisting of Deep Convolutional Neural Networks (i.e. AlexNet and ResNet50), which predicts the class to which a virological CCGR image belongs. 
 
-**Software compilation:**
+## Software compilation:
 
 To generate CCGR images, you need to run the `Encoder-VIRUSES` file (path `/CCGR/dev/src/VIRUSES/Encoder-VIRUSES.py`). You can choose the dataset (from one of the options defined within the encoder), the size of *k*-mers and the coloring schema approach of the CCGR image (i.e., kCCGR or pcCCGR). CCGR images of the selected dataset with thresholds T=0, T=0.5, and T=1 will be produced.
 
