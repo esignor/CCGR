@@ -114,7 +114,7 @@ pip install -r requirements.txt
 ✅ You’re now ready to run the CCGR scripts.
 
 
-## Datasets":
+## Datasets:
 
 
 ## File Hierarchy:
@@ -163,6 +163,7 @@ The developed software includes two main components:
 To generate CCGR images, you need to run the `Encoder-VIRUSES` script located at `CCGR/dev/src/VIRUSES/Encoder-VIRUSES.py`. This script allows you to select the dataset (from the options described in the *Datasets section*), specify the *k*-mer size, and choose the CCGR image coloring scheme (i.e., kCCGR or pcCCGR). The script will produce CCGR images of the selected dataset using float thresholds between 0 and 1.
 
 **Running the Encoder Script**
+
 To execute the script, navigate to the CCGR directory and run the following command in your terminal to see the available parameters and options:
 
 ```
@@ -170,12 +171,12 @@ To execute the script, navigate to the CCGR directory and run the following comm
 ```
 
 **Optional Input Arguments** 
-- --dataset: path to the dataset directory you want to encode using the CCGR approach.
-- --out: path to the output directory where the encoded CCGR images will be saved.
-- --kmer: the size of the *k*-mers to use for FCGR encoding.
-- --encoding: the coloring scheme to apply in the image encoding (kCCGR or pcCCGR).
-- --threshold: threshold parameter T (float between 0 and 1) that defines color assignment based on frequency and/or structural components in the CCGR image.
-- --jellyfish: enable Jellyfish as the k-mer counting tool; if this flag is not set, the internal k-mer counter implemented within the CCGR software will be used.
+- *--dataset*: path to the dataset directory you want to encode using the CCGR approach.
+- *--out*: path to the output directory where the encoded CCGR images will be saved.
+- *--kmer*: the size of the *k*-mers to use for FCGR encoding.
+- *--encoding*: the coloring scheme to apply in the image encoding (kCCGR or pcCCGR).
+- *--threshold*: threshold parameter T (float between 0 and 1) that defines color assignment based on frequency and/or structural components in the CCGR image.
+- *--jellyfish*: enable Jellyfish as the k-mer counting tool; if this flag is not set, the internal k-mer counter implemented within the CCGR software will be used.
 
 
 
