@@ -1,5 +1,3 @@
-
-## MODULE
 import sys
 sys.path.insert(1, 'dev/src/')
 import VIRUSES
@@ -13,42 +11,67 @@ from VIRUSES.CCGRlib.functions_CGR_PCMER import parse_sequence
 from os import listdir
 from os.path import isfile, join
 import os
+import numpy as np
+import time
+import argparse
 
+# --- Argparse CLI interface ---
+parser = argparse.ArgumentParser(
+    description='Encode virus genome sequences into RGB images using CCGR coloring schemas.'
+)
+
+parser.add_argument('--dataset', type=str,
+    default='dev/DATASET/7classes_coronaviruses dataset',
+    help='Path to the dataset folder.')
+
+parser.add_argument('--out', type=str,
+    default='dev/src/VIRUSES/CCGR_ENCODER',
+    help='Output directory for encoded images.')
+
+parser.add_argument('--kmer', type=int,
+    default=6,
+    help='K-mer size for FCGR encoding.')
+
+parser.add_argument('--encoding', type=str,
+    default='pcCCGR',
+    choices=['kCCGR', 'pcCCGR'],
+    help='Encoding color type to use.')
+
+parser.add_argument('--threshold', type=float, nargs='+',
+    default=[0, 0.5, 1],
+    help='List of float thresholds T in [0, 1], used for frequency and pc-mer filtering')
+
+parser.add_argument('--jellyfish', action='store_true',
+    help='Enable jellyfish k-mer counting (if available).')
+
+args = parser.parse_args()
+
+# --- Start process ---
 if __name__ == '__main__':
     start_time = time.time()
-    
-    jellyfish = False # for used jellyfish set the flag to True
 
-
-    if jellyfish == False: print('jellyfish multi-threader k-mers counter active')
-    else: print('jellyfish multi-threader k-mers counter inactive')
+    jellyfish = args.jellyfish
+    if not jellyfish:
+        print('jellyfish multi-threader k-mers counter active')
+    else:
+        print('jellyfish multi-threader k-mers counter inactive')
 
     MAIN_FOLDER = 'dev'
-    out_directory = MAIN_FOLDER + '/src/VIRUSES/CCGR_ENCODER'
-    print(out_directory)
+    out_directory = args.out
     if not os.path.exists(out_directory):
         os.makedirs(out_directory)
 
-    #folder_Dataset = MAIN_FOLDER + '/DATASET/12classes_hiv dataset'
-    #folder_Dataset = MAIN_FOLDER + '/DATASET/37classes_hiv dataset'
-    #folder_Dataset = MAIN_FOLDER + '/DATASET/4classes_dengue dataset'
-    folder_Dataset = MAIN_FOLDER + '/DATASET/7classes_coronaviruses dataset'
-    #folder_Dataset = MAIN_FOLDER + '/DATASET/6classes_hepatitisC dataset'
-    #folder_Dataset = MAIN_FOLDER + '/DATASET/8classes_hepatitisB dataset'
-    #folder_Dataset = MAIN_FOLDER + '/DATASET/13classes_hepatitisB dataset'
-    #folder_Dataset = MAIN_FOLDER + '/DATASET/56classes_influenzaA_reduced dataset'
-    
-
+    folder_Dataset = args.dataset
     list_folder_VIRUSES = [folder_Dataset]
 
     for folder_viruses in list_folder_VIRUSES:
-
         mypath = folder_viruses
-        print(mypath)
+        print('Dataset path:', mypath)
 
-        if 'hiv' and '12' in mypath:
+        # Detect virus class based on path name
+        if 'hiv' in mypath and '12' in mypath:
             viruses = 'HIV1'
-        elif 'hiv' and '37' in mypath:
+        elif 'hiv' in mypath and '37' in mypath:
             viruses = 'HIV2'
         elif 'dengue' in mypath:
             viruses = 'Dengue'
@@ -56,42 +79,44 @@ if __name__ == '__main__':
             viruses = 'Coronaviruses'
         elif 'hepatitisC' in mypath:
             viruses = 'HepatitisC'
-        elif 'hepatitisB' and '8' in mypath:
+        elif 'hepatitisB' in mypath and '8' in mypath:
             viruses = 'HepatitisB1'
-        elif 'hepatitisB' and '13' in mypath:
+        elif 'hepatitisB' in mypath and '13' in mypath:
             viruses = 'HepatitisB2'
         elif 'influenzaA' in mypath:
             viruses = 'InfluenzaA'
-
+            
 
         w, h = 1024, 1024
         my_list = os.listdir(mypath)
 
         for i in range(len(my_list)):
-            Subpath=mypath+'/'+my_list[i]
-            imgpath=my_list[i]
+            Subpath = os.path.join(mypath, my_list[i])
             onlyfiles = [f for f in listdir(Subpath) if isfile(join(Subpath, f))]
-            for s in range(0,len(onlyfiles)):
 
+            for s in range(len(onlyfiles)):
                 data = np.zeros((h, w), dtype=np.uint8)
 
-                fileFASTA = Subpath + '/' + onlyfiles[s]
+                fileFASTA = os.path.join(Subpath, onlyfiles[s])
                 genome_viruses = parse_sequence(fileFASTA)
-                title = fileFASTA.split('/')[4].split('.fasta')[0].replace('.', '-')
-                kmer = 6 # k-mers size: 4, 6, 8, and 10
-                type_encodingColour = "pcCCGR" # Color Chaos Game Rapresentation (CCGR), kCCGR e pcCCGR
-                threshold = [0, 0.5, 1]
-                
-                directory_png = out_directory + '/' +  viruses 
-                
+                title = os.path.splitext(onlyfiles[s])[0].replace('.', '-')
+
+                directory_png = os.path.join(out_directory, viruses)
                 if not os.path.exists(directory_png):
                     os.makedirs(directory_png)
-                print(directory_png)
-                
-                FCGR_VIRUSES = FCGR_PCMER_RGB(2**(2*kmer), "", 0, list(), {}).build_fcgr(genome_viruses, kmer, type_encodingColour, threshold, jellyfish, fileFASTA, title, directory_png, my_list[i]) ## --RGB pcmer
+                print('Saving to:', directory_png)
+
+                FCGR_VIRUSES = FCGR_PCMER_RGB(2 ** (2 * args.kmer),"",0, [],{}).build_fcgr(
+                    genome_viruses,
+                    args.kmer,
+                    args.encoding,
+                    args.threshold,
+                    jellyfish,
+                    fileFASTA,
+                    title,
+                    directory_png,
+                    my_list[i]
+                )
+
                 end_time = time.time()
                 print('TIME:', end_time - start_time)
-
-                    
-
-
