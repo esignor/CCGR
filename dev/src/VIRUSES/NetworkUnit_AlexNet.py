@@ -82,7 +82,7 @@ if __name__ == "__main__":
                         help="Dataset name (i.e.,Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA.)")
     parser.add_argument('--type_encoder', type=str, default="RGB", choices=["RGB", "Grayscale"], 
                         help="Type of encoder (default: RGB)")
-    parser.add_argument('--k', type=int, default=4, 
+    parser.add_argument('--kmer', type=int, default=4, 
                         help="Value of k for k-mer (default: 4)")
     parser.add_argument('--threshold', type=float, default=0.0, 
                         help="Threshold value (default: 0.0)")
