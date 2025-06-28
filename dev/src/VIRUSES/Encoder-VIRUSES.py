@@ -1,19 +1,11 @@
 import sys
 sys.path.insert(1, 'dev/src/')
-import VIRUSES
 
 from VIRUSES.CCGRlib.module import * 
 from VIRUSES.CCGRlib.cgr import CGR
 from VIRUSES.CCGRlib.fcgr import FCGR, FCGR_RGB
 from VIRUSES.CCGRlib.fcgr_pcmer_rgb import FCGR_PCMER_RGB
 from VIRUSES.CCGRlib.functions_CGR_PCMER import parse_sequence
-
-from os import listdir
-from os.path import isfile, join
-import os
-import numpy as np
-import time
-import argparse
 
 # --- Argparse CLI interface ---
 parser = argparse.ArgumentParser(
