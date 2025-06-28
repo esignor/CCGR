@@ -77,6 +77,7 @@ def main(args):
 
 
 if __name__ == "__main__":
+    # --- Argparse CLI interface ---
     parser = argparse.ArgumentParser(
         description="Train ResNet50 model with CCGR encoding."
     )
