@@ -13,10 +13,10 @@ def main(args):
             "-> Please correct your arguments: use --type_encoder RGB"
         )
 
-    job = f"CCGR (k={args.k} T={args.threshold} {args.type_encodingColour})"
+    job = f"CCGR (k={args.kmer} T={args.threshold} {args.type_encodingColour})"
     print(f"Job description: {job}")
 
-    X_data, y_data, nb_classes = preprocessing('ResNet50', args.type_encoder, args.dataset, args.k, job)
+    X_data, y_data, nb_classes = preprocessing('ResNet50', args.type_encoder, args.dataset, args.kmer, job)
 
     batch_size = args.batch_size
     epoch = args.epochs
@@ -79,7 +79,7 @@ def main(args):
 if __name__ == "__main__":
     # --- Argparse CLI interface ---
     parser = argparse.ArgumentParser(
-        description="Train ResNet50 model with CCGR encoding."
+        description="Train ResNet50 model with CCGR encoding"
     )
     parser.add_argument('--dataset', type=str, required=True,
                         help="Dataset name (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA)")

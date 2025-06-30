@@ -194,7 +194,7 @@ def normalize_flag_virus(s):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Preprocessing virus dataset.')
+    parser = argparse.ArgumentParser(description='Preprocessing virus dataset')
     parser.add_argument('--virus', type=str, required=True,
                         choices=[
                             'HIV1', 'HIV2', 'Dengue', 'HepatitisB1',

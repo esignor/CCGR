@@ -7,7 +7,8 @@ from VIRUSES.CCGRlib.fcgr import FCGR, FCGR_RGB
 from VIRUSES.CCGRlib.fcgr_pcmer_rgb import FCGR_PCMER_RGB
 from VIRUSES.CCGRlib.functions_CGR_PCMER import parse_sequence
 
-# python dev/src/VIRUSES/Encoder-VIRUSES.py --virus Coronaviruses --kmer 6 --encoding pcCCGR
+# python dev/src/VIRUSES/Encoder-VIRUSES.py --virus Coronaviruses --kmer 5 --encoding pcCCGR --threshold 1 --jellyfish
+
 
 # --- Mapping virus name to dataset directory ---
 VIRUS_DATASET_PATHS = {
@@ -37,10 +38,10 @@ parser.add_argument('--kmer', type=int,
 parser.add_argument('--encoding', type=str,
     default='pcCCGR',
     choices=['kCCGR', 'pcCCGR'],
-    help='Encoding color type to use.')
+    help='Encoding color type to use')
 
 parser.add_argument('--threshold', type=float, nargs='+',
-    default=[0, 0.5, 1],
+    default=[0.0, 0.5, 1.0],
     help='List of float thresholds T in [0, 1], used for frequency and pc-mer filtering')
 
 parser.add_argument('--jellyfish', action='store_true',
