@@ -171,8 +171,7 @@ To execute the script, navigate to the CCGR directory and run the following comm
 ```
 
 #### Optional Input Arguments
-- *--dataset*: path to the dataset directory you want to encode using the CCGR approach.
-- *--out*: path to the output directory where the encoded CCGR images will be saved.
+- *--virus*: name of the virus to which the CCGR Encoder should be applied (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA). See *Datasets* section.
 - *--kmer*: the size of the *k*-mers to use for FCGR encoding.
 - *--encoding*: the coloring scheme to apply in the image encoding (kCCGR or pcCCGR).
 - *--threshold*: threshold parameter T (float between 0 and 1) that defines color assignment based on frequency and/or structural components in the CCGR image.
@@ -182,10 +181,10 @@ To execute the script, navigate to the CCGR directory and run the following comm
 
 #### Example Usage
 
-The following command runs the CCGR Encoder with the default coronavirus dataset, a k-mer size of 5, the pcCCGR coloring scheme, a threshold of 1 (using only the structural component), and Jellyfish enabled:
+The following command runs the CCGR Encoder with coronavirus dataset, a k-mer size of 5, the pcCCGR coloring scheme, a threshold of 1 (using only the structural component), and Jellyfish enabled:
 
 ```
-python dev/src/VIRUSES/Encoder-VIRUSES.py --kmer 5 --encoding pcCCGR --threshold 1 --jellyfish
+python dev/src/VIRUSES/Encoder-VIRUSES.py -- virus Coronaviruses --kmer 6 --encoding pcCCGR --threshold 1 --jellyfish
 ```
 The expected output is a full decoding of the coronavirus dataset into CCGR images using the pcCCGR color scheme with a threshold of 1.
 
@@ -225,15 +224,42 @@ CCGR images generated using the pcCCGR coloring scheme are created using all thr
 
 #### Example Usage
 
+The following command starts the training of the a Network Unit on pre-generated CCGR images of the coronavirus, using the following image parameters: *k*-mer size set to 6, *threshold* set to 0, and color encoding scheme (*type_encodingColour*) set to pcCCGR. For training, the chosen batch_size is 30, epochs is set to 30, and 2 tasks are executed in parallel.
+
+
+- AlexNet Network Unit:
 ```
-python dev/src/VIRUSES/NetworkUnit_AlexNet.py --dataset Coronaviruses --type_encoder RGB --k 4 --threshold 0 --type_encodingColour pcCCGR
+python dev/src/VIRUSES/NetworkUnit_AlexNet.py --dataset Coronaviruses --type_encoder RGB --kmer 6 --threshold 1 --type_encodingColour pcCCGR --batch_size 30 --epochs 30 --n_task 2
 ```
 
+- ResNet50 Network Unit:
+```
+python dev/src/VIRUSES/NetworkUnit_ResNet50.py --dataset Coronaviruses --type_encoder RGB --kmer 6 --threshold 1 --type_encodingColour pcCCGR --batch_size 30 --epochs 30 --n_task 2
+```
 
-
+Al termine dell'addestramento e' atteso l'ottenimento del modello trainiato (in formato .keras) e dei plot e delle metriche riassuntive per set di training, validation e test (vedere sezione *Results Training*).
 
 
 
 ## Results Training
 
-At the end of a model run, the trained model is saved in `CCGR/dev/src/VIRUSES/CCGR [NAME DATASET] Models` path and the results of the training in `CCGR/dev/src/VIRUSES/CCGR [NAME DATASET] Results` path.
+At the end of a model run, the trained model is saved in the path: `CCGR/dev/src/VIRUSES/CCGR [NAME VIRUS DATASET] Models`
+
+and the training results are saved in: `CCGR/dev/src/VIRUSES/CCGR [NAME VIRUS DATASET] Results`
+
+
+In the `[NAME VIRUS DATASET]` Models directory, each trained model from the Network Units for the specified NAME VIRUS DATASET is saved in *.keras* format.
+
+In the `[NAME VIRUS DATASET]` Results directory, the following outputs are saved for each training session on the Network Units:
+
+- A summary file containing model performance metrics: confusion matrix, classification report, training time, test and validation accuracy.
+**Filename format:**
+`[type_encoder]results_[Network Unit]_CCGR([kmer threshold type_encodingColour]).txt`
+
+- A plot showing the training and validation loss over epochs.
+**Filename format:**
+`Training-Validation_Loss_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
+
+- A plot showing the training and validation accuracy over epochs.
+**Filename format:**
+`Training-Validation_Accuracy_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
