@@ -263,7 +263,7 @@ The developed software includes two main components:
 - **Network Unit:** a deep learning module based on Convolutional Neural Networks (e.g., AlexNet and ResNet50) that classifies the generated CCGR images into their corresponding virological classes.
 
 Before proceeding with software compilation (running the Encoder and Network Units scripts), it is **ESSENTIAL** to download the FASTA files from the appropriate databases (see the *Datasets* section) and perform data preprocessing using the command:
-```python dev/VirusPreprocessingDatasets.py --help``
+```python dev/VirusPreprocessingDatasets.py --help```
 for more details.
 
 
