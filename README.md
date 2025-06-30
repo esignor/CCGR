@@ -176,7 +176,7 @@ The data processed by the CCGR software belong to the virus category. It was nat
 | InfluenzaA     | influenzaA     | 56classes_influenzaA_dataset       | 
 
 
-* **Coronavirus**:
+* **Coronavirus:**
 
 1. The dataset can be downloaded from the following address: [https://github.com/SAkbari93/WalkIm/tree/main/Data](https://github.com/SAkbari93/WalkIm/tree/main/Data) (authors of WalkIm)
 
@@ -188,7 +188,7 @@ The data processed by the CCGR software belong to the virus category. It was nat
 
 The name assigned by the CCGR software to this dataset is *Coronavirus*
 
-* **HIV1**
+* **HIV1:**
 
 1. Go to the LANL Database webpage ([https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html](https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html))
 
@@ -200,7 +200,7 @@ The name assigned by the CCGR software to this dataset is *Coronavirus*
 
 The name assigned by the CCGR software to this dataset is *HIV1*
 
-* **HIV2**
+* **HIV2:**
 
 1. Go to the LANL Database webpage ([https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html](https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html))
 
@@ -212,7 +212,7 @@ The name assigned by the CCGR software to this dataset is *HIV1*
 
 The name assigned by the CCGR software to this dataset is *HIV2*
 
-* **Dengue**
+* **Dengue:**
 
 1. Go to the NCBI Database webpage ([https://www.ncbi.nlm.nih.gov/genomes/VirusVariation/Database/nph-select.cgi](https://www.ncbi.nlm.nih.gov/genomes/VirusVariation/Database/nph-select.cgi))
 
@@ -224,25 +224,25 @@ The name assigned by the CCGR software to this dataset is *HIV2*
 
 The name assigned by the CCGR software to this dataset is *Dengue*
 
-* **HepatitisC**
+* **HepatitisC:**
 
 1. Go to the NCBI Database webpage ([https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html](https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html))
 
 The name assigned by the CCGR software to this dataset is *HepatitisC*
 
-* **HepatitisB1**
+* **HepatitisB1:**
 
 1. Go to the NCBI Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
 
 The name assigned by the CCGR software to this dataset is *HepatitisB1*
 
-* **HepatitisB2**
+* **HepatitisB2:**
 
 1. Go to the NCBI Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
 
 The name assigned by the CCGR software to this dataset is *HepatitisB2*
 
-* **InfluenzaA**
+* **InfluenzaA:**
 
 1. Go to the NCBI Database webpage ([https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType\_s=Nucleotide\&VirusLineage\_ss=Dengue%20virus,taxid:12637](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=Dengue%20virus,taxid:12637))
 
@@ -262,8 +262,9 @@ The developed software includes two main components:
 
 - **Network Unit:** a deep learning module based on Convolutional Neural Networks (e.g., AlexNet and ResNet50) that classifies the generated CCGR images into their corresponding virological classes.
 
-
-Prima di procedere con la compilazione software (running Encoder e Network Units scripts) e' **FONDAMENTALE** scaricare i fasta dai database appositi (vedere seziona *Datasets*) e procedere con il proprocessing dei dati, mediante il comando  `python dev/VirusPreprocessingDatasets.py --help` maggiori dettagli.
+Before proceeding with software compilation (running the Encoder and Network Units scripts), it is **ESSENTIAL** to download the FASTA files from the appropriate databases (see the *Datasets* section) and perform data preprocessing using the command:
+```python dev/VirusPreprocessingDatasets.py --help``
+for more details.
 
 
 
