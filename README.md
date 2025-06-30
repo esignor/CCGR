@@ -248,18 +248,24 @@ At the end of a model run, the trained model is saved in the path: `CCGR/dev/src
 and the training results are saved in: `CCGR/dev/src/VIRUSES/CCGR [NAME VIRUS DATASET] Results`
 
 
-In the `[NAME VIRUS DATASET]` Models directory, each trained model from the Network Units for the specified NAME VIRUS DATASET is saved in *.keras* format.
+In the `[NAME VIRUS DATASET]` Models directory, each trained model from the Network Units for the specified `NAME VIRUS DATASET` is saved in *.keras* format.
 
 In the `[NAME VIRUS DATASET]` Results directory, the following outputs are saved for each training session on the Network Units:
 
 - A summary file containing model performance metrics: confusion matrix, classification report, training time, test and validation accuracy.
+
 **Filename format:**
+
 `[type_encoder]results_[Network Unit]_CCGR([kmer threshold type_encodingColour]).txt`
 
 - A plot showing the training and validation loss over epochs.
+
 **Filename format:**
+
 `Training-Validation_Loss_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
 
 - A plot showing the training and validation accuracy over epochs.
+
 **Filename format:**
+
 `Training-Validation_Accuracy_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
