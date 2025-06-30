@@ -7,22 +7,32 @@ from VIRUSES.CCGRlib.fcgr import FCGR, FCGR_RGB
 from VIRUSES.CCGRlib.fcgr_pcmer_rgb import FCGR_PCMER_RGB
 from VIRUSES.CCGRlib.functions_CGR_PCMER import parse_sequence
 
+# python dev/src/VIRUSES/Encoder-VIRUSES.py --virus Coronaviruses --kmer 6 --encoding pcCCGR
+
+# --- Mapping virus name to dataset directory ---
+VIRUS_DATASET_PATHS = {
+    'Coronaviruses': 'dev/DATASET/7classes_coronaviruses_dataset',
+    'HIV1': 'dev/DATASET/12classes_hiv1_dataset',
+    'HIV2': 'dev/DATASET/37classes_hiv2_dataset',
+    'Dengue': 'dev/DATASET/4classes_dengue_dataset',
+    'HepatitisC': 'dev/DATASET/6classes_hepatitisC_dataset',
+    'HepatitisB1': 'dev/DATASET/8classes_hepatitisB1_dataset',
+    'HepatitisB2': 'dev/DATASET/13classes_hepatitisB2_dataset',
+    'InfluenzaA': 'dev/DATASET/56classes_influenzaA_dataset' 
+}
+
 # --- Argparse CLI interface ---
 parser = argparse.ArgumentParser(
-    description='Encode virus genome sequences into RGB images using CCGR coloring schemas.'
+    description='Encode virus genome sequences into RGB images using CCGR coloring schemas'
 )
 
-parser.add_argument('--dataset', type=str,
-    default='dev/DATASET/7classes_coronaviruses dataset',
-    help='Path to the dataset folder.')
-
-parser.add_argument('--out', type=str,
-    default='dev/src/VIRUSES/CCGR_ENCODER',
-    help='Output directory for encoded images.')
+parser.add_argument('--virus', type=str, required=True,
+    choices=VIRUS_DATASET_PATHS.keys(),
+    help='Name of the virus (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA)')
 
 parser.add_argument('--kmer', type=int,
     default=6,
-    help='K-mer size for FCGR encoding.')
+    help='K-mer size for FCGR encoding')
 
 parser.add_argument('--encoding', type=str,
     default='pcCCGR',
@@ -34,7 +44,7 @@ parser.add_argument('--threshold', type=float, nargs='+',
     help='List of float thresholds T in [0, 1], used for frequency and pc-mer filtering')
 
 parser.add_argument('--jellyfish', action='store_true',
-    help='Enable jellyfish k-mer counting (if available).')
+    help='Enable jellyfish k-mer counting (if available)')
 
 args = parser.parse_args()
 
@@ -48,67 +58,45 @@ if __name__ == '__main__':
     else:
         print('jellyfish multi-threader k-mers counter inactive')
 
-    MAIN_FOLDER = 'dev'
-    out_directory = args.out
-    if not os.path.exists(out_directory):
-        os.makedirs(out_directory)
+     # Get dataset path from mapping
+    virus_name = args.virus
+    folder_Dataset = VIRUS_DATASET_PATHS[virus_name]
 
-    folder_Dataset = args.dataset
-    list_folder_VIRUSES = [folder_Dataset]
+    # Output dir: e.g. CCGR/dev/src/VIRUSES/CCGR_ENCODER/Coronaviruses
+    out_directory = os.path.join('dev', 'src', 'VIRUSES', 'CCGR_ENCODER')
+    os.makedirs(out_directory, exist_ok=True)
 
-    for folder_viruses in list_folder_VIRUSES:
-        mypath = folder_viruses
-        print('Dataset path:', mypath)
+    print(f'Using dataset: {folder_Dataset}')
+    print(f'Output will be saved in: {out_directory}')
 
-        # Detect virus class based on path name
-        if 'hiv' in mypath and '12' in mypath:
-            viruses = 'HIV1'
-        elif 'hiv' in mypath and '37' in mypath:
-            viruses = 'HIV2'
-        elif 'dengue' in mypath:
-            viruses = 'Dengue'
-        elif 'coronaviruses' in mypath:
-            viruses = 'Coronaviruses'
-        elif 'hepatitisC' in mypath:
-            viruses = 'HepatitisC'
-        elif 'hepatitisB' in mypath and '8' in mypath:
-            viruses = 'HepatitisB1'
-        elif 'hepatitisB' in mypath and '13' in mypath:
-            viruses = 'HepatitisB2'
-        elif 'influenzaA' in mypath:
-            viruses = 'InfluenzaA'
-            
+    my_list = os.listdir(folder_Dataset)
 
-        w, h = 1024, 1024
-        my_list = os.listdir(mypath)
+    w, h = 1024, 1024
 
-        for i in range(len(my_list)):
-            Subpath = os.path.join(mypath, my_list[i])
-            onlyfiles = [f for f in listdir(Subpath) if isfile(join(Subpath, f))]
+    for virus_class in my_list:
+        Subpath = os.path.join(folder_Dataset, virus_class)
+        onlyfiles = [f for f in listdir(Subpath) if isfile(join(Subpath, f))]
 
-            for s in range(len(onlyfiles)):
-                data = np.zeros((h, w), dtype=np.uint8)
+        for filename in onlyfiles:
+            fileFASTA = os.path.join(Subpath, filename)
+            genome_viruses = parse_sequence(fileFASTA)
+            title = os.path.splitext(filename)[0].replace('.', '-')
 
-                fileFASTA = os.path.join(Subpath, onlyfiles[s])
-                genome_viruses = parse_sequence(fileFASTA)
-                title = os.path.splitext(onlyfiles[s])[0].replace('.', '-')
+            directory_png = os.path.join(out_directory, virus_name)
+            os.makedirs(directory_png, exist_ok=True)
+            print('Saving to:', directory_png)
 
-                directory_png = os.path.join(out_directory, viruses)
-                if not os.path.exists(directory_png):
-                    os.makedirs(directory_png)
-                print('Saving to:', directory_png)
+            FCGR_PCMER_RGB(2 ** (2 * args.kmer), "", 0, [], {}).build_fcgr(
+                genome_viruses,
+                args.kmer,
+                args.encoding,
+                args.threshold,
+                jellyfish,
+                fileFASTA,
+                title,
+                directory_png,
+                virus_class
+            )
 
-                FCGR_VIRUSES = FCGR_PCMER_RGB(2 ** (2 * args.kmer),"",0, [],{}).build_fcgr(
-                    genome_viruses,
-                    args.kmer,
-                    args.encoding,
-                    args.threshold,
-                    jellyfish,
-                    fileFASTA,
-                    title,
-                    directory_png,
-                    my_list[i]
-                )
-
-                end_time = time.time()
-                print('TIME:', end_time - start_time)
+    end_time = time.time()
+    print('TOTAL TIME:', end_time - start_time)
