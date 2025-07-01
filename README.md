@@ -5,12 +5,12 @@ The CCGR directory contains the implementation of the Color Chaos Game Represent
 This README describes installation, dataset preparation, software execution, and output interpretation.
 
 
-## Third-party software and libraries:
+## Third-party software and libraries
 
 Color Chaos Game Representation used Jellyfish (https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
 In the experiments, we compared CCGR with WalkIm (https://github.com/SAkbari93/WalkIm).
 
-## Software configuration:
+## Software configuration
 
 The code in **CCGR** is developed in Python **3.9**.
 
@@ -23,7 +23,7 @@ Additional packages: `numpy`, `collections`, `concurrent.futures` (e.g. `Process
 We recommend using a binary package manager such as **Conda**, Anaconda, or Miniconda to create an isolated environment, independent of your operating system
 
 
-## Installation:
+## Installation
 
 **Clone the Repository**
 
@@ -118,7 +118,7 @@ pip install -r requirements.txt
 
 
 
-## File Hierarchy:
+## File Hierarchy
 
 ```
 CCGR/
@@ -162,7 +162,7 @@ CCGR/
 
 `NetworkUnit_AlexNet.py` and `NetworkUnit_ResNet50.py` implement the CCGR Network unit, with different architecture variants.
 
-## Datasets:
+## Datasets
 
 The data processed by the CCGR software belong to the virus category. It was natively developed to work on 8 datasets (belonging to 6 different virus families), namely: Coronaviruses, HIV-1, Dengue, Hepatitis C, Hepatitis B, and Influenza A.
 
@@ -276,7 +276,7 @@ The name assigned by the CCGR software to this dataset is *InfluenzaA*
 
 
 
-## Software Description:
+## Software Description
 The developed software includes two main components:
 
 - **Encoder Unit:** responsible for converting virological sequences into images using the Color Chaos Game Representation (CCGR) algorithm.
@@ -289,7 +289,7 @@ for more details.
 
 
 
-## Software compilation:
+## Software compilation
 To generate CCGR images, you need to run the `Encoder-VIRUSES` script located at `CCGR/dev/src/VIRUSES/Encoder-VIRUSES.py`. This script allows you to select the dataset (from the options described in the *Datasets section*), specify the *k*-mer size, and choose the CCGR image coloring scheme (i.e., kCCGR or pcCCGR). The script will produce CCGR images of the selected dataset using float thresholds between 0 and 1.
 
 ### Running the Encoder Script
@@ -371,7 +371,7 @@ At the end of the training, the trained model (in .keras format) is expected to 
 
 
 
-## Results Training:
+## Results Training
 
 At the end of a model run:
 
@@ -396,7 +396,8 @@ In the `[VIRUS NAME DATASET]` Results directory, the following outputs are saved
 
 **Filename format:** `Training-Validation_Accuracy_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
 
-## Help:
+## Help
+
 For any questions regarding the repository, requests for additional data, or other inquiries, please open an issue on GitHub or contact Eleonora Signor directly at eleonora.signor@gmail.com.
 
 We can also provide the FASTA files, a container configured for running the code on clusters, and, upon request, pre-processed viral datasets.
