@@ -126,8 +126,8 @@ CCGR/
 ├── README.md                     # Project documentation
 ├── requirements.txt              # pip requirements (alternative to conda)
 ├── dev/
-|   ├── _DATASET/                       # contains CCGR-compatible datasets
-│   │   └── DatasetsGuidelines.md       #  Datasets documentation
+|   ├── _DATASET/                       # Contains CCGR-compatible datasets
+│   │   └── DatasetsGuidelines.md       # Datasets documentation
 |   ├── VirusPreprocessingDatasets.py   # Script to convert virological .fasta files into CCGR-compatible datasets
 │   ├── _lib/
 │   │   └── jellyfish/            # Contains the jellyfish binary
@@ -137,7 +137,7 @@ CCGR/
 │           ├── CCGRlib/          # Implementation of the CCGR library
 │           ├── Encoder-VIRUSES.py  # CCGR Encoder unit implementation
 │           ├── NetworkUnit_AlexNet.py         # CCGR Network unit – AlexNet architecture
-│           └── NetworkUnit_ResNet50.py          # CCGR Network unit – ResNet50 architecture
+│           └── NetworkUnit_ResNet50.py        # CCGR Network unit – ResNet50 architecture
 ```
 
 - `CCGR/`: root directory of the Color Chaos Game Representation (CCGR) project.
@@ -148,9 +148,9 @@ CCGR/
 
 - `requirements.txt`: (alternative to conda) used to install dependencies via pip.
 
-- `dev`: contains the implementation of the CCGR software, including preprocessing scripts, libraries, and model architecture definitions.
+- `dev/`: contains the implementation of the CCGR software, including preprocessing scripts, libraries, and model architecture definitions.
 
-- `dev/DATASET`: directory containing the datasets compatible with CGR, along with the necessary documentation (*DatasetsGuidelines.md*) to obtain them.
+- `dev/DATASET`: directory containing the datasets compatible with CCGR, along with the necessary documentation (*DatasetsGuidelines.md*) to obtain them.
 
 - `dev/VirusPreprocessingDatasets.py`: script that converts virological genome sequences in .fasta format into datasets compatible with the CCGR pipeline.
 
@@ -171,7 +171,7 @@ CCGR/
 The data processed by the CCGR software belong to the virus category. It was natively developed to work on 8 datasets (belonging to 6 different virus families), namely: Coronaviruses, HIV-1, Dengue, Hepatitis C, Hepatitis B, and Influenza A.
 
 
-The table below lists: *Virus Name*, which is the name of the virological dataset recognized by the CCGR software; *FASTA Name*, the name of the Fasta file containing the genomic sequences; and *Dataset Directory Name*, the name of the dataset directory after preprocessing, made compatible with CCGR.
+The table below lists: **Virus Name**, which is the name of the virological dataset recognized by the CCGR software; **FASTA Name**, the name of the Fasta file containing the genomic sequences; and **Dataset Directory Name**, the name of the dataset directory after preprocessing, made compatible with CCGR.
 Details regarding the sources of the Fasta files, the data extraction queries, and the preprocessing scripts are provided immediately following the table.
 
 
@@ -197,7 +197,7 @@ Details regarding the sources of the Fasta files, the data extraction queries, a
 
 4. Place `7classes_coronaviruses_dataset` inside `CCGR/dev/DATASET`
 
-The name assigned by the CCGR software to this dataset is *Coronavirus*
+The name assigned by the CCGR software to this dataset is *Coronaviruses*
 
 * **HIV1:**
 
@@ -288,7 +288,7 @@ The developed software includes two main components:
 
 - **Network Unit:** a deep learning module based on Convolutional Neural Networks (e.g., AlexNet and ResNet50) that classifies the generated CCGR images into their corresponding virological classes.
 
-Before proceeding with software compilation (running the Encoder and Network Units scripts), it is **ESSENTIAL** to download the FASTA files from the appropriate databases (see the *Datasets* section) and perform data preprocessing using the command:
+Before proceeding with software compilation (running the Encoder and Network Unit scripts), it is **ESSENTIAL** to download the FASTA files from the appropriate databases (see the *Datasets section*) and perform data preprocessing; use the command
 ```python dev/VirusPreprocessingDatasets.py --help```
 for more details.
 
@@ -306,27 +306,27 @@ To execute the script, navigate to the CCGR directory and run the following comm
 ```
 
 #### Optional Input Arguments
-- *--virus*: name of the virus to which the CCGR Encoder should be applied (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA). See *Datasets* section.
+- *--virus*: name of the virus to which the CCGR Encoder should be applied (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA). See *Datasets section*.
 - *--kmer*: the size of the *k*-mers to use for FCGR encoding.
 - *--encoding*: the coloring scheme to apply in the image encoding (kCCGR or pcCCGR).
 - *--threshold*: threshold parameter T (float between 0 and 1) that defines color assignment based on frequency and/or structural components in the CCGR image.
-- *--jellyfish*: enable Jellyfish as the k-mer counting tool; if this flag is not set, the internal k-mer counter implemented within the CCGR software will be used.
+- *--jellyfish*: enable Jellyfish as the k-mer counting tool; if this flag is not set, the internal k-mers counter implemented within the CCGR software will be used.
 
 
 
 #### Example Usage
 
-The following command runs the CCGR Encoder with coronavirus dataset, a k-mer size of 5, the pcCCGR coloring scheme, a threshold of 1 (using only the structural component), and Jellyfish enabled:
+The following command runs the CCGR Encoder with **coronavirus dataset, a *k*-mer size of 6, the pcCCGR coloring scheme, a threshold of 1 (using only the structural component), and Jellyfish enabled**:
 
 ```
-python dev/src/VIRUSES/Encoder-VIRUSES.py -- virus Coronaviruses --kmer 6 --encoding pcCCGR --threshold 1 --jellyfish
+python dev/src/VIRUSES/Encoder-VIRUSES.py --virus Coronaviruses --kmer 6 --encoding pcCCGR --threshold 1 --jellyfish
 ```
-The expected output is a full decoding of the coronavirus dataset into CCGR images using the pcCCGR color scheme with a threshold of 1.
+The expected output is a full decoding of the coronaviruses dataset into CCGR images using the pcCCGR color scheme with a threshold of 1.
 
 
-### Running the Network Units Scripts
-
-To test the classification networks, it is necessary to run the AlexNet and ResNet50 models. CCGR directory provides a model for each possible approach implemented and tested in CCGR. For each model, it is possible to set not only the coloring schema approach but also the dataset (from one of the options defined within the model) and the size of *k*-mers. 
+### Running the Network Unit Scripts
+ 
+To test the Network Unit, it is necessary to run the AlexNet and ResNet50 models. The CCGR directory provides a model for each network architecture implemented and tested in CCGR. For each model, it is possible to configure a variety of parameters, such as the **coloring scheme**, the **CCGR image dataset**, and the **network parameters**.
 
 To execute the script, navigate to the CCGR directory and run the following command in your terminal to see the available parameters and options:
 
@@ -340,7 +340,7 @@ To execute the script, navigate to the CCGR directory and run the following comm
  python dev/src/VIRUSES/NetworkUnit_ResNet50.py --help
 ```
 
-Before proceeding with the training of an image set, the images must first be generated by the Encoder Unit. Once generated and ready for training, CCGR image sets are stored in the `CCGR_ENCODER` directory (path: `CCGR/dev/src/VIRUSES/CCGR_ENCODER`).
+**Before proceeding with the training of an image set, the images must first be generated by the Encoder Unit**. Once generated and ready for training, CCGR image sets are stored in the `CCGR_ENCODER` directory (path: `CCGR/dev/src/VIRUSES/CCGR_ENCODER`).
 
 #### Optional Input Arguments
 - *--dataset*: name of the virus dataset to which the CCGR Network Unit will be applied (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA).
@@ -359,7 +359,7 @@ CCGR images generated using the pcCCGR coloring scheme utilize all three color c
 
 #### Example Usage
 
-The following command starts the training of the a Network Unit on pre-generated CCGR images of the coronavirus, using the following image parameters: *k*-mer size set to 6, *threshold* set to 0, and color encoding scheme (*type_encodingColour*) set to pcCCGR. For training, the chosen batch_size is 30, epochs is set to 30, and 2 tasks are executed in parallel.
+The following command starts the training of the a Network Unit on pre-generated CCGR images of the coronaviruses, using the following image parameters: *k*-mer size set to 6, *threshold* set to 1, and color encoding scheme (*type_encodingColour*) set to pcCCGR. For training, the chosen batch_size is 30, epochs is set to 30, and 2 tasks are executed in parallel.
 
 
 - AlexNet Network Unit:
@@ -372,34 +372,53 @@ python dev/src/VIRUSES/NetworkUnit_AlexNet.py --dataset Coronaviruses --type_enc
 python dev/src/VIRUSES/NetworkUnit_ResNet50.py --dataset Coronaviruses --type_encoder RGB --kmer 6 --threshold 1 --type_encodingColour pcCCGR --batch_size 30 --epochs 30 --n_task 2
 ```
 
-At the end of the training, the trained model (in .keras format) is expected to be obtained, along with plots and summary metrics for the training, validation, and test sets (see the *Results Training* section).
+At the end of the training, **the trained model (in .keras format)** is expected to be obtained, along with **plots and summary metrics for the training, validation, and test sets** (see the *Results Training section*).
 
 
 
 ## Results Training
 
-At the end of a model run:
+At the end of a model run, two main directories are generated:
 
-(1) The trained model is saved in: `CCGR/dev/src/VIRUSES/CCGR [VIRUS NAME DATASET] Models`
+1. **Trained Models**
 
-(2) The training results are saved in: `CCGR/dev/src/VIRUSES/CCGR [VIRUS NAME DATASET] Results`
+   **Path:** `CCGR/dev/src/VIRUSES/CCGR [Virus Name] Models`
+
+    Each trained model from the Network Unit for the specified *Virus Name* is saved in *.keras* format.
+
+2. **Training Results**
+
+   **Path:** `CCGR/dev/src/VIRUSES/CCGR [Virus Name] Results`
+
+    For each training session, the following outputs are saved:
+
+    a) **Performance summary file**
+
+    *Contains:*
+
+    - Confusion matrix
+
+    - Classification report
+
+    - Training time
+
+    - Test and validation accuracy
+
+    *Filename format:*
+    `[type_encoder]results_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].txt`
 
 
-In the `[VIRUS NAME DATASET]` Models directory, each trained model from the Network Units for the specified `VIRUS NAME DATASET` is saved in *.keras* format.
+    b) **Training and validation loss plot**
 
-In the `[VIRUS NAME DATASET]` Results directory, the following outputs are saved for each training session on the Network Units:
+    *Filename format:*
+    `Training-Validation_Loss_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
 
-- A summary file containing model performance metrics: confusion matrix, classification report, training time, test and validation accuracy.
 
-**Filename format:** `[type_encoder]results_[Network Unit]_CCGR([kmer threshold type_encodingColour]).txt`
+    **Training and validation accuracy plot**
 
-- A plot showing the training and validation loss over epochs.
+    c) *Filename format:*
+    `Training-Validation_Accuracy_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
 
-**Filename format:** `Training-Validation_Loss_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
-
-- A plot showing the training and validation accuracy over epochs.
-
-**Filename format:** `Training-Validation_Accuracy_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
 
 ## Help
 
