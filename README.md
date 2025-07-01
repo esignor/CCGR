@@ -77,12 +77,12 @@ conda activate ccgr_env
 ✅ You’re now ready to run the CCGR scripts.
 
 *Note:* 
-On systems with limited memory, Conda may crash during installation. In that case, we recommend using the pip-based installation below.
+On systems with limited memory, Conda may crash during installation. In that case, we recommend using the **pip-based installation** below.
 
-If using a Conda environment, always make sure that you are actually working within the intended environment (e.g., ccgr_env). Some useful commands to verify this include checking that the pip and python executables are pointing to the Conda environment and not the system installation:
+If using a Conda environment, always make sure that you are actually working within the intended environment (e.g., *ccgr_env*). Some useful commands to verify this include checking that the pip and python executables are pointing to the Conda environment and not the system installation:
 
 ```
-which python
+which python    # alternative: which pip
 ```
 Expected correct terminal output:
 ```
