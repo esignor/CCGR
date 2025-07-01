@@ -210,8 +210,8 @@ if __name__ == '__main__':
         'HIV2': ('hiv-db.fasta', 37),
         'Dengue': ('dengue.fasta', 4),
         'HepatitisC': ('HCV.fasta', 6),
-        'HepatitisB1': ('hepatitisB_1.fasta', 8),
-        'HepatitisB2': ('hepatitisB_2.fasta', 13),
+        'HepatitisB1': ('hepatitisB.fasta', 8),
+        'HepatitisB2': ('hepatitisB.fasta', 13),
         'InfluenzaA': ('influenzaA.fasta', 56)
     }
 

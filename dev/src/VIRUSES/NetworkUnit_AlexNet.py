@@ -4,8 +4,20 @@ from CCGRlib.functions_Net import (
     plot_loss_accuracy, saveConfMatrixClassReport
 )
 
+
+#  python dev/src/VIRUSES/NetworkUnit_AlexNet.py --help
+#- --dataset: name of the virus dataset to which the CCGR Network Unit will be applied (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA).
+#- --type_encoder: image format for CCGR input (either Grayscale or RGB).
+#- --kmer: the size of *k*-mers used for FCGR in the CCGR image.
+#- --threshold: threshold parameter T (a float between 0 and 1) applied to the CCGR image set.
+#- --type_encodingColour: the coloring scheme applied to the CCGR image set (kCCGR or pcCCGR).
+#- --batch_size: number of training samples used in each iteration of the Network Unit model.
+#- --epochs: number of training epochs for the Network Unit model.
+#- --n_task: number of tasks to be executed in parallel during model training.
+
+
 def main(args):
-    # check compatibility: pcCCGR request RGB
+    # Check compatibility: pcCCGR request RGB
     if args.type_encodingColour == "pcCCGR" and args.type_encoder == "Grayscale":
         raise ValueError(
             "Error: CCGR images generated with the 'pcCCGR' technique can only be trained using an 'RGB' encoder.\n"

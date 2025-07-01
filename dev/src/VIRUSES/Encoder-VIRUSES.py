@@ -7,7 +7,13 @@ from VIRUSES.CCGRlib.fcgr import FCGR, FCGR_RGB
 from VIRUSES.CCGRlib.fcgr_pcmer_rgb import FCGR_PCMER_RGB
 from VIRUSES.CCGRlib.functions_CGR_PCMER import parse_sequence
 
-# python dev/src/VIRUSES/Encoder-VIRUSES.py --virus Coronaviruses --kmer 5 --encoding pcCCGR --threshold 1 --jellyfish
+
+# python dev/src/VIRUSES/Encoder-VIRUSES.py --help
+#- --virus: name of the virus to which the CCGR Encoder should be applied (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA). See *Datasets section*.
+#- --kmer: the size of the *k*-mers to use for FCGR encoding.
+#- --encoding: the coloring scheme to apply in the image encoding (kCCGR or pcCCGR).
+#- --threshold: threshold parameter T (float between 0 and 1) that defines color assignment based on frequency and/or structural components in the CCGR image.
+#- --jellyfish: enable Jellyfish as the k-mer counting tool; if this flag is not set, the internal k-mers counter implemented within the CCGR software will be used.
 
 
 # --- Mapping virus name to dataset directory ---
@@ -55,9 +61,9 @@ if __name__ == '__main__':
 
     jellyfish = args.jellyfish
     if not jellyfish:
-        print('jellyfish multi-threader k-mers counter active')
-    else:
         print('jellyfish multi-threader k-mers counter inactive')
+    else:
+        print('jellyfish multi-threader k-mers counter active')
 
      # Get dataset path from mapping
     virus_name = args.virus
