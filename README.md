@@ -1,22 +1,20 @@
 # CCGR
 
-The CCGR directory contains the implementation of the Color Chaos Game Representation (CCGR) approach. It provides an Econder unit to transform virological sequences into CCGR images and a Network unit consisting of the AlexNet and ResNet50 networks. 
+The CCGR directory contains the implementation of the **Color Chaos Game Representation (CCGR)** approach. It provides an Econder unit to transform virological sequences into CCGR images and a Network unit consisting of the AlexNet and ResNet50 networks. 
 
 This README describes installation, dataset preparation, software execution, and output interpretation.
 
 
 ## Third-party software and libraries
 
-Color Chaos Game Representation used Jellyfish (https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
-In the experiments, we compared CCGR with WalkIm (https://github.com/SAkbari93/WalkIm).
+Color Chaos Game Representation used **Jellyfish** (https://github.com/gmarcais/Jellyfish) multi-threader k-mers counter.
+In the experiments, we compared CCGR with **WalkIm** (https://github.com/SAkbari93/WalkIm).
 
 ## Software configuration
 
 The code in **CCGR** is developed in Python **3.9**.
 
-To run the software, the following Python libraries are required:
-
-`pandas`, `matplotlib`, `scikit-learn`, `keras`, `tensorflow`
+To run the software, the following Python libraries are required: `pandas`, `matplotlib`, `scikit-learn`, `keras`, `tensorflow`
 
 Additional packages: `numpy`, `collections`, `concurrent.futures` (e.g. `ProcessPoolExecutor`), and `Pillow` for image processing.
 
@@ -47,7 +45,7 @@ This software supports both GPU-accelerated and CPU-only execution using TensorF
 - cuDNN version 8.6 or higher
 - NVIDIA driver version 450 or higher
 
-These requirements align with the TensorFlow version specified in the environment and requirements files (e.g., TensorFlow 2.11). Meeting these specifications enables GPU acceleration for optimal performance.
+These requirements align with the TensorFlow version specified in the environment and *requirements* files (e.g., TensorFlow 2.11). Meeting these specifications enables GPU acceleration for optimal performance.
 
 *CPU Support:* The software can run on CPU-only systems without a GPU. Recommended hardware specifications for CPU execution include:
 
@@ -57,7 +55,7 @@ These requirements align with the TensorFlow version specified in the environmen
 
 While CPU execution is supported and suitable for testing or smaller datasets, GPU acceleration is strongly recommended for faster processing and handling of large genomic datasets.
 
-For our tests on the CCGR software, we used a server cluster equipped with Nvidia A40 GPUs, 1.5 TB of RAM (to Network Units), and Intel Xeon Platinum 8260 CPUs (2.40/3.90 GHz), with a total of 6 TB of RAM available (to Encoder Unit) for running the experiments.
+For our tests on the **CCGR** software, we used a server cluster equipped with **Nvidia A40 GPUs, 1.5 TB of RAM** (to Network Units), and **Intel Xeon Platinum 8260 CPUs (2.40/3.90 GHz) with a total of 6 TB of RAM available** (to Encoder Unit) for running the experiments.
 
 
 🟩 **Option 1 – Install via Conda (recommended for full reproducibility)**
