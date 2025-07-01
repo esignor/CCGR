@@ -171,8 +171,8 @@ The data processed by the CCGR software belong to the virus category. It was nat
 | HIV2           | hiv-db         | 37classes_hiv2_dataset             |
 | Dengue         | dengue         | 4classes_dengue_dataset            |
 | HepatitisC     | HCV            | 6classes_hepatitisC_dataset        |
-| HepatitisB1    | hepatitisB_1   | 8classes_hepatitisB1_dataset       |
-| HepatitisB2    | hepatitisB_2   | 13classes_hepatitisB2_dataset      |
+| HepatitisB1    | hepatitisB     | 8classes_hepatitisB1_dataset       |
+| HepatitisB2    | hepatitisB     | 13classes_hepatitisB2_dataset      |
 | InfluenzaA     | influenzaA     | 56classes_influenzaA_dataset       | 
 
 
@@ -226,25 +226,43 @@ The name assigned by the CCGR software to this dataset is *Dengue*
 
 * **HepatitisC:**
 
-1. Go to the NCBI Database webpage ([https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html](https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html))
+1. Go to the LANL Database webpage ([https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html](https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html))
+
+2. Select the following query parameters: *sequence information:* any genotype, exclude recombinants ,*genomic region:* complete region, *exclude:* problematic sequence, *other options:* default. Press the `Show Results` button on the interface
+
+3. Download the *Fasta* file and name it `HCV.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+
+4. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HepatitisC`
 
 The name assigned by the CCGR software to this dataset is *HepatitisC*
 
 * **HepatitisB1:**
 
-1. Go to the NCBI Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
+1. Go to the HBVdb Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
+
+2. Download the *Fasta* file and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+
+3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HepatitisB1`
 
 The name assigned by the CCGR software to this dataset is *HepatitisB1*
 
 * **HepatitisB2:**
 
-1. Go to the NCBI Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
+1. Go to the HBVdb Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
+
+2. Download the *Fasta* file and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+
+3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HepatitisB2`
 
 The name assigned by the CCGR software to this dataset is *HepatitisB2*
 
 * **InfluenzaA:**
 
-1. Go to the NCBI Database webpage ([https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType\_s=Nucleotide\&VirusLineage\_ss=Dengue%20virus,taxid:12637](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=Dengue%20virus,taxid:12637))
+1. Go to the NCBI Database webpage ([https://www.ncbi.nlm.nih.gov/genomes/FLU/Database/nph-select.cgi#mainform](https://www.ncbi.nlm.nih.gov/genomes/FLU/Database/nph-select.cgi#mainform))
+
+2. Select the following query parameters: *sequence type:* nucleotide, *type:* A, *sequence length:* full-length only, *	Collection date:* from 2013-01-01 to 2023-12-31, *additionals filters:* collapse identical sequences *other options:* default. Press the `Show Results` button on the interface
+
+3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus InfluenzaA`
 
 The name assigned by the CCGR software to this dataset is *InfluenzaA*
 
