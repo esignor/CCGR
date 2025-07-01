@@ -55,6 +55,7 @@ These requirements align with the TensorFlow version specified in the environmen
 
 While CPU execution is supported and suitable for testing or smaller datasets, GPU acceleration is strongly recommended for faster processing and handling of large genomic datasets.
 
+*Note:* 
 For our tests on the **CCGR** software, we used a server cluster equipped with **Nvidia A40 GPUs, 1.5 TB of RAM** (to Network Units), and **Intel Xeon Platinum 8260 CPUs (2.40/3.90 GHz) with a total of 6 TB of RAM available** (to Encoder Unit) for running the experiments.
 
 
