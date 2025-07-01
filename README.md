@@ -167,6 +167,10 @@ CCGR/
 The data processed by the CCGR software belong to the virus category. It was natively developed to work on 8 datasets (belonging to 6 different virus families), namely: Coronaviruses, HIV-1, Dengue, Hepatitis C, Hepatitis B, and Influenza A.
 
 
+The table below lists: *Virus Name*, which is the name of the virological dataset recognized by the CCGR software; *FASTA Name*, the name of the fasta file containing the genomic sequences; and *Dataset Directory Name*, the name of the dataset directory after preprocessing, made compatible with CCGR.
+Details regarding the sources of the FASTA files, the data extraction queries, and the preprocessing scripts are provided immediately following the table.
+
+
 | Virus Name     | FASTA Name     | Dataset Directory Name             |
 |----------------|----------------|------------------------------------|
 | Coronaviruses  | None           | 7classes_coronaviruses_dataset     |
