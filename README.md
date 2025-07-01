@@ -126,6 +126,8 @@ CCGR/
 ├── README.md                     # Project documentation
 ├── requirements.txt              # pip requirements (alternative to conda)
 ├── dev/
+|   ├── _DATASET/                       # contains CCGR-compatible datasets
+│   │   └── DatasetsGuidelines.md       #  Datasets documentation
 |   ├── VirusPreprocessingDatasets.py   # Script to convert virological .fasta files into CCGR-compatible datasets
 │   ├── _lib/
 │   │   └── jellyfish/            # Contains the jellyfish binary
@@ -147,6 +149,8 @@ CCGR/
 - `requirements.txt`: (alternative to conda) used to install dependencies via pip.
 
 - `dev`: contains the implementation of the CCGR software, including preprocessing scripts, libraries, and model architecture definitions.
+
+- `dev/DATASET`: directory containing the datasets compatible with CGR, along with the necessary documentation (*DatasetsGuidelines.md*) to obtain them.
 
 - `dev/VirusPreprocessingDatasets.py`: script that converts virological genome sequences in .fasta format into datasets compatible with the CCGR pipeline.
 
