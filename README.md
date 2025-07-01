@@ -368,7 +368,7 @@ Al termine dell'addestramento e' atteso l'ottenimento del modello trainiato (in 
 
 
 
-## Results Training
+## Results Training:
 
 At the end of a model run:
 
