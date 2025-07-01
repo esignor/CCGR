@@ -191,7 +191,7 @@ Details regarding the sources of the Fasta files, the data extraction queries, a
 
 3. Rename the directory to `7classes_coronaviruses_dataset`
 
-4. Place `7classes_coronaviruses_dataset` inside `CCGR/DATASET`
+4. Place `7classes_coronaviruses_dataset` inside `CCGR/dev/DATASET`
 
 The name assigned by the CCGR software to this dataset is *Coronavirus*
 
@@ -201,7 +201,7 @@ The name assigned by the CCGR software to this dataset is *Coronavirus*
 
 2. Select the following query parameters: *virus:* HIV-1, *genomic region:* complete genome, *subtype:* any subtype, excluding problematic, *other options:* default. Press the `Search` button on the interface
 
-3. Download the *Fasta* file and name it `hiv-db.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+3. Download the *Fasta* file and name it `hiv-db.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
 4. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HIV1`
 
@@ -213,7 +213,7 @@ The name assigned by the CCGR software to this dataset is *HIV1*
 
 2. Select the following query parameters: *virus:* HIV-1, *genomic region:* complete genome, *subtype:* any subtype, excluding problematic, *other options:* default. Press the `Search` button on the interface
 
-3. Download the *Fasta* file and name it `hiv-db.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+3. Download the *Fasta* file and name it `hiv-db.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
 4. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HIV2`
 
@@ -225,7 +225,7 @@ The name assigned by the CCGR software to this dataset is *HIV2*
 
 2. Select the following query parameters: *sequence type:* nucleotide, full-length sequences only, collapse identical sequences, *other options:* default. Press the `Show Results` button on the interface
 
-3. Download the *Fasta* file and name it `dengue.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+3. Download the *Fasta* file and name it `dengue.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
 4. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus Dengue`
 
@@ -237,7 +237,7 @@ The name assigned by the CCGR software to this dataset is *Dengue*
 
 2. Select the following query parameters: *sequence information:* any genotype, exclude recombinants ,*genomic region:* complete region, *exclude:* problematic sequence, *other options:* default. Press the `Show Results` button on the interface
 
-3. Download the *Fasta* file and name it `HCV.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+3. Download the *Fasta* file and name it `HCV.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
 4. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HepatitisC`
 
@@ -247,7 +247,7 @@ The name assigned by the CCGR software to this dataset is *HepatitisC*
 
 1. Go to the HBVdb Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
 
-2. Download the *Fasta* file and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+2. Download the *Fasta* file and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
 3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HepatitisB1`
 
@@ -257,7 +257,7 @@ The name assigned by the CCGR software to this dataset is *HepatitisB1*
 
 1. Go to the HBVdb Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
 
-2. Download the *Fasta* file and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/DATASET`
+2. Download the *Fasta* file and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
 3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HepatitisB2`
 
@@ -272,9 +272,6 @@ The name assigned by the CCGR software to this dataset is *HepatitisB2*
 3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus InfluenzaA`
 
 The name assigned by the CCGR software to this dataset is *InfluenzaA*
-
-
-
 
 
 
