@@ -103,7 +103,8 @@ https://www.python.org/downloads/release/python-390/.
 python3.9 -m venv ccgr_env
 source ccgr_env/bin/activate  # On Windows: ccgr_env\Scripts\activate
 ```
-In casi di problemi o di incompatibilita' e possibile anche creare un ambiente Conda con python3.9 installato e procedere con il punto (2)
+In case of issues or incompatibilities, it is also possible to create a Conda environment with Python 3.9 installed and proceed with step (2).
+
 2. Install the required packages:
 
 
@@ -364,7 +365,7 @@ python dev/src/VIRUSES/NetworkUnit_AlexNet.py --dataset Coronaviruses --type_enc
 python dev/src/VIRUSES/NetworkUnit_ResNet50.py --dataset Coronaviruses --type_encoder RGB --kmer 6 --threshold 1 --type_encodingColour pcCCGR --batch_size 30 --epochs 30 --n_task 2
 ```
 
-Al termine dell'addestramento e' atteso l'ottenimento del modello trainiato (in formato .keras) e dei plot e delle metriche riassuntive per set di training, validation e test (vedere sezione *Results Training*).
+At the end of the training, the trained model (in .keras format) is expected to be obtained, along with plots and summary metrics for the training, validation, and test sets (see the *Results Training* section).
 
 
 
