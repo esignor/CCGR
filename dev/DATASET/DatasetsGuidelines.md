@@ -19,7 +19,7 @@ Details regarding the sources of the Fasta files, the data extraction queries, a
 | InfluenzaA     | influenzaA     | 56classes_influenzaA_dataset       | 
 
 
-* **Coronavirus:**
+## Coronavirus
 
 1. The dataset can be downloaded from the following address: [https://github.com/SAkbari93/WalkIm/tree/main/Data](https://github.com/SAkbari93/WalkIm/tree/main/Data) (authors of WalkIm)
 
@@ -31,7 +31,7 @@ Details regarding the sources of the Fasta files, the data extraction queries, a
 
 The name assigned by the CCGR software to this dataset is *Coronavirus*
 
-* **HIV1:**
+## HIV1
 
 1. Go to the LANL Database webpage ([https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html](https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html))
 
@@ -43,7 +43,7 @@ The name assigned by the CCGR software to this dataset is *Coronavirus*
 
 The name assigned by the CCGR software to this dataset is *HIV1*
 
-* **HIV2:**
+## HIV2
 
 1. Go to the LANL Database webpage ([https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html](https://www.hiv.lanl.gov/components/sequence/HIV/search/search.html))
 
@@ -55,7 +55,7 @@ The name assigned by the CCGR software to this dataset is *HIV1*
 
 The name assigned by the CCGR software to this dataset is *HIV2*
 
-* **Dengue:**
+## Dengue
 
 1. Go to the NCBI Database webpage ([https://www.ncbi.nlm.nih.gov/genomes/VirusVariation/Database/nph-select.cgi](https://www.ncbi.nlm.nih.gov/genomes/VirusVariation/Database/nph-select.cgi))
 
@@ -67,7 +67,7 @@ The name assigned by the CCGR software to this dataset is *HIV2*
 
 The name assigned by the CCGR software to this dataset is *Dengue*
 
-* **HepatitisC:**
+## HepatitisC
 
 1. Go to the LANL Database webpage ([https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html](https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html))
 
@@ -79,7 +79,7 @@ The name assigned by the CCGR software to this dataset is *Dengue*
 
 The name assigned by the CCGR software to this dataset is *HepatitisC*
 
-* **HepatitisB1:**
+## HepatitisB1
 
 1. Go to the HBVdb Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
 
@@ -89,7 +89,7 @@ The name assigned by the CCGR software to this dataset is *HepatitisC*
 
 The name assigned by the CCGR software to this dataset is *HepatitisB1*
 
-* **HepatitisB2:**
+## HepatitisB2
 
 1. Go to the HBVdb Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
 
@@ -99,7 +99,7 @@ The name assigned by the CCGR software to this dataset is *HepatitisB1*
 
 The name assigned by the CCGR software to this dataset is *HepatitisB2*
 
-* **InfluenzaA:**
+## InfluenzaA
 
 1. Go to the NCBI Database webpage ([https://www.ncbi.nlm.nih.gov/genomes/FLU/Database/nph-select.cgi#mainform](https://www.ncbi.nlm.nih.gov/genomes/FLU/Database/nph-select.cgi#mainform))
 
