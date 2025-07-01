@@ -187,7 +187,7 @@ Details regarding the sources of the Fasta files, the data extraction queries, a
 | InfluenzaA     | influenzaA     | 56classes_influenzaA_dataset       | 
 
 
-* **Coronavirus:**
+* **Coronaviruses:**
 
 1. The dataset can be downloaded from the following address: [https://github.com/SAkbari93/WalkIm/tree/main/Data](https://github.com/SAkbari93/WalkIm/tree/main/Data) (authors of WalkIm)
 
@@ -239,7 +239,7 @@ The name assigned by the CCGR software to this dataset is *Dengue*
 
 1. Go to the LANL Database webpage ([https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html](https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html))
 
-2. Select the following query parameters: *sequence information:* any genotype, exclude recombinants ,*genomic region:* complete region, *exclude:* problematic sequence, *other options:* default. Press the `Show Results` button on the interface
+2. Select the following query parameters: *sequence information:* any genotype, exclude recombinants ,*genomic region:* complete region, *exclude:* problematic sequence, *other options:* default. Press the `Search` button on the interface
 
 3. Download the *Fasta* file and name it `HCV.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
@@ -249,9 +249,9 @@ The name assigned by the CCGR software to this dataset is *HepatitisC*
 
 * **HepatitisB1:**
 
-1. Go to the HBVdb Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
+1. Go to the HBVdb Database webpage ([https://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset?seqtype=0](https://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset?seqtype=0))
 
-2. Download the *Fasta* file and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
+2. Download the *Fasta* file (select the options *genotype:* All, *sequence type:* Genomes) and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
 3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HepatitisB1`
 
@@ -259,9 +259,9 @@ The name assigned by the CCGR software to this dataset is *HepatitisB1*
 
 * **HepatitisB2:**
 
-1. Go to the HBVdb Database webpage ([http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset](http://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset))
+1. Go to the HBVdb Database webpage ([https://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset?seqtype=0](https://hbvdb.lyon.inserm.fr/HBVdb/HBVdbDataset?seqtype=0))
 
-2. Download the *Fasta* file and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
+2. Download the *Fasta* file (select the options *genotype:* All, *sequence type:* Genomes) and name it `hepatitisB.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
 3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus HepatitisB2`
 
@@ -273,7 +273,9 @@ The name assigned by the CCGR software to this dataset is *HepatitisB2*
 
 2. Select the following query parameters: *sequence type:* nucleotide, *type:* A, *sequence length:* full-length only, *collection date:* from 2013-01-01 to 2023-12-31, *additionals filters:* collapse identical sequences *other options:* default. Press the `Show Results` button on the interface
 
-3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus InfluenzaA`
+3. Download the *Fasta* file and name it `influenzaA.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
+
+4. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus InfluenzaA`
 
 The name assigned by the CCGR software to this dataset is *InfluenzaA*
 
