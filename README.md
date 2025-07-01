@@ -144,7 +144,7 @@ CCGR/
 
 - `README`: main documentation file for the project (current file).
 
-- `enviromental.yaml`: conda environment definition file for dependency setup.
+- `environment.yaml`: conda environment definition file for dependency setup.
 
 - `requirements.txt`: (alternative to conda) used to install dependencies via pip.
 
@@ -355,7 +355,7 @@ To execute the script, navigate to the CCGR directory and run the following comm
 - *--n_task*: number of tasks to be executed in parallel during model training.
 
 
-#### Trainig Technical Note
+#### Training Technical Note
 
 CCGR images generated using the pcCCGR coloring scheme utilize all three color channels and are therefore in RGB format. As a result, the type_encoder value Grayscale is not supported for pcCCGR images.
 
