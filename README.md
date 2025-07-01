@@ -260,7 +260,7 @@ The name assigned by the CCGR software to this dataset is *HepatitisB2*
 
 1. Go to the NCBI Database webpage ([https://www.ncbi.nlm.nih.gov/genomes/FLU/Database/nph-select.cgi#mainform](https://www.ncbi.nlm.nih.gov/genomes/FLU/Database/nph-select.cgi#mainform))
 
-2. Select the following query parameters: *sequence type:* nucleotide, *type:* A, *sequence length:* full-length only, *	Collection date:* from 2013-01-01 to 2023-12-31, *additionals filters:* collapse identical sequences *other options:* default. Press the `Show Results` button on the interface
+2. Select the following query parameters: *sequence type:* nucleotide, *type:* A, *sequence length:* full-length only, *collection date:* from 2013-01-01 to 2023-12-31, *additionals filters:* collapse identical sequences *other options:* default. Press the `Show Results` button on the interface
 
 3. From within CCGR, run the command `python dev/VirusPreprocessingDatasets.py --virus InfluenzaA`
 
