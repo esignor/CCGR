@@ -348,9 +348,9 @@ Before proceeding with the training of an image set, the images must first be ge
 - *--n_task*: number of tasks to be executed in parallel during model training.
 
 
-#### Trainig Tecnical Note
+#### Trainig Technical Note
 
-CCGR images generated using the pcCCGR coloring scheme are created using all three color channels and are therefore in RGB format. As a result, the type_encoder value Grayscale is not supported for pcCCGR images.
+CCGR images generated using the pcCCGR coloring scheme utilize all three color channels and are therefore in RGB format. As a result, the type_encoder value Grayscale is not supported for pcCCGR images.
 
 #### Example Usage
 
@@ -395,3 +395,8 @@ In the `[VIRUS NAME DATASET]` Results directory, the following outputs are saved
 - A plot showing the training and validation accuracy over epochs.
 
 **Filename format:** `Training-Validation_Accuracy_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
+
+## Help:
+For any questions regarding the repository, requests for additional data, or other inquiries, please open an issue on GitHub or contact Eleonora Signor directly at eleonora.signor@gmail.com.
+
+We can also provide the FASTA files, a container configured for running the code on clusters, and, upon request, pre-processed viral datasets.
