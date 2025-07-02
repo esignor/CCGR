@@ -422,3 +422,8 @@ At the end of a model run, two main directories are generated:
     `Training-Validation_Accuracy_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
 
 
+## Help
+
+For any questions regarding the repository, requests for additional data, or other inquiries, please open an issue on GitHub or contact Eleonora Signor directly at eleonora.signor@gmail.com.
+
+We can also provide the FASTA files, a container configured for running the code on clusters, and, upon request, pre-processed viral datasets.
