@@ -361,7 +361,7 @@ CCGR images generated using the pcCCGR coloring scheme utilize all three color c
 
 #### Example Usage
 
-The following command starts the training of the a Network unit on pre-generated CCGR images of the coronaviruses, using the following image parameters: *k*-mer size set to 6, *threshold* set to 1, and color encoding scheme (*type_encodingColour*) set to pcCCGR. For training, the chosen batch_size is 30, epochs is set to 30, and 2 tasks are executed in parallel.
+The following command starts the training of the a Network unit on pre-generated **CCGR images of the coronaviruses**, using the following image parameters: ***k*-mer size set to 6, *threshold* set to 1, and color encoding scheme** (*type_encodingColour*) set to **pcCCGR**. For training, the chosen ***batch_size* is 30, *epochs* is set to 30, and 2 tasks are executed in parallel**.
 
 
 - AlexNet Network unit:
@@ -407,19 +407,19 @@ At the end of a model run, two main directories are generated:
     - Test and validation accuracy
 
     *Filename format:*
-    `[type_encoder]results_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].txt`
+    `[type_encoder]results [Network Unit] CCGR([kmer threshold type_encodingColour]) [batch_size] [epochs].txt`
 
 
     b) **Training and validation loss plot**
 
     *Filename format:*
-    `Training-Validation_Loss_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
+    `Training-Validation Loss [Network Unit] CCGR([kmer threshold type_encodingColour]) [batch_size] [epochs].png`
 
 
     **Training and validation accuracy plot**
 
     c) *Filename format:*
-    `Training-Validation_Accuracy_[Network Unit]_CCGR([kmer threshold type_encodingColour])_[batch_size]_[epochs].png`
+    `Training-Validation Accuracy [Network Unit] CCGR([kmer threshold type_encodingColour]) [batch_size] [epochs].png`
 
 
 ## Help
