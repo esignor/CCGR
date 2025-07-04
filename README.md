@@ -45,7 +45,7 @@ This software supports both GPU-accelerated and CPU-only execution using TensorF
 - cuDNN version 8.6 or higher
 - NVIDIA driver version 450 or higher
 
-These requirements align with the TensorFlow version specified in the environment and *requirements* files (e.g., TensorFlow 2.11). Meeting these specifications enables GPU acceleration for optimal performance.
+These requirements align with the TensorFlow version specified in the *environment.yaml* and *requirements.txt* files (e.g., TensorFlow 2.11). Meeting these specifications enables GPU acceleration for optimal performance.
 
 *CPU Support:* The software can run on CPU-only systems without a GPU. Recommended hardware specifications for CPU execution include:
 
@@ -56,7 +56,7 @@ These requirements align with the TensorFlow version specified in the environmen
 While CPU execution is supported and suitable for testing or smaller datasets, GPU acceleration is strongly recommended for faster processing and handling of large genomic datasets.
 
 *Note:* 
-For our tests on the **CCGR** software, we used a server cluster equipped with **Nvidia A40 GPUs, 1.5 TB of RAM** (to Network Units), and **Intel Xeon Platinum 8260 CPUs (2.40/3.90 GHz) with a total of 6 TB of RAM available** (to Encoder Unit) for running the experiments.
+For our tests on the **CCGR** software, we used a server cluster equipped with **Nvidia A40 GPUs, 1.5 TB of RAM** (to Network units), and **Intel Xeon Platinum 8260 CPUs (2.40/3.90 GHz) with a total of 6 TB of RAM available** (to Encoder unit) for running the experiments.
 
 
 🟩 **Option 1 – Install via Conda (recommended for full reproducibility)**
@@ -84,7 +84,7 @@ If using a Conda environment, always make sure that you are actually working wit
 ```
 which python    # alternative: which pip
 ```
-Expected correct terminal output:
+Expected (or similar) correct terminal output:
 ```
 /home/users/anaconda3/envs/ccgr_env/bin/python
 ```
@@ -137,7 +137,7 @@ CCGR/
 │           ├── CCGRlib/          # Implementation of the CCGR library
 │           ├── Encoder-VIRUSES.py  # CCGR Encoder unit implementation
 │           ├── NetworkUnit_AlexNet.py         # CCGR Network unit – AlexNet architecture
-│           └── NetworkUnit_ResNet50.py        # CCGR Network unit – ResNet50 architecture
+│           └── Networkunit_ResNet50.py        # CCGR Network unit – ResNet50 architecture
 ```
 
 - `CCGR/`: root directory of the Color Chaos Game Representation (CCGR) project.
@@ -239,7 +239,7 @@ The name assigned by the CCGR software to this dataset is *Dengue*
 
 1. Go to the LANL Database webpage ([https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html](https://hcv.lanl.gov/components/sequence/HCV/search/searchi.html))
 
-2. Select the following query parameters: *sequence information:* any genotype, exclude recombinants ,*genomic region:* complete region, *exclude:* problematic sequence, *other options:* default. Press the `Search` button on the interface
+2. Select the following query parameters: *sequence information:* any genotype, exclude recombinants, *genomic region:* complete region, *exclude:* problematic sequence, *other options:* default. Press the `Search` button on the interface
 
 3. Download the *Fasta* file and name it `HCV.fasta`. Place the *.fasta* file in `CCGR/dev/DATASET`
 
@@ -286,22 +286,22 @@ The name assigned by the CCGR software to this dataset is *InfluenzaA*
 ## Software Description
 The developed software includes two main components:
 
-- **Encoder Unit:** responsible for converting virological sequences into images using the Color Chaos Game Representation (CCGR) algorithm.
+- **Encoder unit:** responsible for converting virological sequences into images using the Color Chaos Game Representation (CCGR) algorithm.
 
-- **Network Unit:** a deep learning module based on Convolutional Neural Networks (e.g., AlexNet and ResNet50) that classifies the generated CCGR images into their corresponding virological classes.
+- **Network unit:** a deep learning module based on Convolutional Neural Networks (e.g., AlexNet and ResNet50) that classifies the generated CCGR images into their corresponding virological classes.
 
-Before proceeding with software compilation (running the Encoder and Network Unit scripts), it is **ESSENTIAL** to download the FASTA files from the appropriate databases (see the *Datasets section*) and perform data preprocessing; use the command
+Before proceeding with software compilation (running the Encoder and Network unit scripts), it is **ESSENTIAL** to download the FASTA files from the appropriate databases (see the *Datasets section*) and perform data preprocessing; use the command
 ```python dev/VirusPreprocessingDatasets.py --help```
 for more details.
 
 
 
 ## Software compilation
-To generate CCGR images, you need to run the `Encoder-VIRUSES` script located at `CCGR/dev/src/VIRUSES/Encoder-VIRUSES.py`. This script allows you to select the dataset (from the options described in the *Datasets section*), specify the *k*-mer size, and choose the CCGR image coloring scheme (i.e., kCCGR or pcCCGR). The script will produce CCGR images of the selected dataset using float thresholds between 0 and 1.
 
-### Running the Encoder Script
+### Running the Encoder unit Script
+To generate CCGR images, you need to run the `Encoder-VIRUSES` script located at `CCGR/dev/src/VIRUSES/Encoder-VIRUSES.py`. This script allows you to select the **dataset** (from the options described in the *Datasets section*), specify the ***k*-mer size**, choose the CCGR image **coloring scheme** (i.e., kCCGR or pcCCGR), and a **threshold float value**. The script will produce CCGR images of the selected dataset using float thresholds between 0 and 1.
 
-To execute the script, navigate to the CCGR directory and run the following command in your terminal to see the available parameters and options:
+To execute the Encoder unit script, navigate to the CCGR directory and run the following command in your terminal to see the available parameters and options:
 
 ```
  python dev/src/VIRUSES/Encoder-VIRUSES.py --help
@@ -318,7 +318,7 @@ To execute the script, navigate to the CCGR directory and run the following comm
 
 #### Example Usage
 
-The following command runs the CCGR Encoder with **coronavirus dataset, a *k*-mer size of 6, the pcCCGR coloring scheme, a threshold of 1 (using only the structural component), and Jellyfish enabled**:
+The following command runs the CCGR Encoder with **coronaviruses dataset, a *k*-mer size of 6, the pcCCGR coloring scheme, a threshold of 1 (using only the structural component), and Jellyfish enabled**:
 
 ```
 python dev/src/VIRUSES/Encoder-VIRUSES.py --virus Coronaviruses --kmer 6 --encoding pcCCGR --threshold 1 --jellyfish
@@ -326,50 +326,50 @@ python dev/src/VIRUSES/Encoder-VIRUSES.py --virus Coronaviruses --kmer 6 --encod
 The expected output is a full decoding of the coronaviruses dataset into CCGR images using the pcCCGR color scheme with a threshold of 1.
 
 
-### Running the Network Unit Scripts
+### Running the Network unit Scripts
  
-To test the Network Unit, it is necessary to run the AlexNet and ResNet50 models. The CCGR directory provides a model for each network architecture implemented and tested in CCGR. For each model, it is possible to configure a variety of parameters, such as the **coloring scheme**, the **CCGR image dataset**, and the **network parameters**.
+To test the Network unit, it is necessary to run the `AlexNet` and `ResNet50` models located at `CCGR/dev/src/VIRUSES/NetworkUnit_AlexNet.py` and `CCGR/dev/src/VIRUSES/NetworkUnit_ResNet50.py`. The CCGR directory provides a model for each network architecture implemented and tested in CCGR. For each model, it is possible to configure a variety of parameters, such as the **coloring scheme**, the **CCGR image dataset**, and the **network parameters**.
 
 To execute the script, navigate to the CCGR directory and run the following command in your terminal to see the available parameters and options:
 
-- AlexNet Network Unit:
+- AlexNet Network unit:
 ```
  python dev/src/VIRUSES/NetworkUnit_AlexNet.py --help
 ```
 
-- ResNet50 Network Unit:
+- ResNet50 Network unit:
 ```
  python dev/src/VIRUSES/NetworkUnit_ResNet50.py --help
 ```
 
-**Before proceeding with the training of an image set, the images must first be generated by the Encoder Unit**. Once generated and ready for training, CCGR image sets are stored in the `CCGR_ENCODER` directory (path: `CCGR/dev/src/VIRUSES/CCGR_ENCODER`).
+**Before proceeding with the training of an image set, the images must first be generated by the Encoder unit**. Once generated and ready for training, CCGR image sets are stored in the `CCGR_ENCODER` directory (path: `CCGR/dev/src/VIRUSES/CCGR_ENCODER`).
 
 #### Optional Input Arguments
-- *--dataset*: name of the virus dataset to which the CCGR Network Unit will be applied (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA).
+- *--dataset*: name of the virus dataset to which the CCGR Network unit will be applied (i.e., Coronaviruses, HIV1, HIV2, Dengue, HepatitisC, HepatitisB1, HepatitisB2, InfluenzaA).
 - *--type_encoder*: image format for CCGR input (either Grayscale or RGB).
 - *--kmer*: the size of *k*-mers used for FCGR in the CCGR image.
 - *--threshold*: threshold parameter T (a float between 0 and 1) applied to the CCGR image set.
 - *--type_encodingColour*: the coloring scheme applied to the CCGR image set (kCCGR or pcCCGR).
-- *--batch_size*: number of training samples used in each iteration of the Network Unit model.
-- *--epochs*: number of training epochs for the Network Unit model.
+- *--batch_size*: number of training samples used in each iteration of the Network unit model.
+- *--epochs*: number of training epochs for the Network unit model.
 - *--n_task*: number of tasks to be executed in parallel during model training.
 
 
 #### Training Technical Note
 
-CCGR images generated using the pcCCGR coloring scheme utilize all three color channels and are therefore in RGB format. As a result, the type_encoder value Grayscale is not supported for pcCCGR images.
+CCGR images generated using the pcCCGR coloring scheme utilize all three color channels and are therefore in RGB format. As a result, the ***type_encoder* value Grayscale is not supported for pcCCGR images**.
 
 #### Example Usage
 
-The following command starts the training of the a Network Unit on pre-generated CCGR images of the coronaviruses, using the following image parameters: *k*-mer size set to 6, *threshold* set to 1, and color encoding scheme (*type_encodingColour*) set to pcCCGR. For training, the chosen batch_size is 30, epochs is set to 30, and 2 tasks are executed in parallel.
+The following command starts the training of the a Network unit on pre-generated CCGR images of the coronaviruses, using the following image parameters: *k*-mer size set to 6, *threshold* set to 1, and color encoding scheme (*type_encodingColour*) set to pcCCGR. For training, the chosen batch_size is 30, epochs is set to 30, and 2 tasks are executed in parallel.
 
 
-- AlexNet Network Unit:
+- AlexNet Network unit:
 ```
 python dev/src/VIRUSES/NetworkUnit_AlexNet.py --dataset Coronaviruses --type_encoder RGB --kmer 6 --threshold 1 --type_encodingColour pcCCGR --batch_size 30 --epochs 30 --n_task 2
 ```
 
-- ResNet50 Network Unit:
+- ResNet50 Network unit:
 ```
 python dev/src/VIRUSES/NetworkUnit_ResNet50.py --dataset Coronaviruses --type_encoder RGB --kmer 6 --threshold 1 --type_encodingColour pcCCGR --batch_size 30 --epochs 30 --n_task 2
 ```
@@ -386,7 +386,7 @@ At the end of a model run, two main directories are generated:
 
    **Path:** `CCGR/dev/src/VIRUSES/CCGR [Virus Name] Models`
 
-    Each trained model from the Network Unit for the specified *Virus Name* is saved in *.keras* format.
+    Each trained model from the Network unit for the specified *Virus Name* is saved in *.keras* format.
 
 2. **Training Results**
 
