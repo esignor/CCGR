@@ -407,19 +407,19 @@ At the end of a model run, two main directories are generated:
     - Test and validation accuracy
 
     *Filename format:*
-    `[type_encoder]results [Network Unit] CCGR([kmer threshold type_encodingColour]) [batch_size] [epochs].txt`
+    `[type_encoder]results [Network Unit] CCGR([kmer threshold type_encodingColour]) batchsize [batch_size] epoch [epochs].txt`
 
 
     b) **Training and validation loss plot**
 
     *Filename format:*
-    `Training-Validation Loss [Network Unit] CCGR([kmer threshold type_encodingColour]) [batch_size] [epochs].png`
+    `Training-Validation Loss [Network Unit] CCGR([kmer threshold type_encodingColour]) batchsize [batch_size] epoch [epochs].png`
 
 
     **Training and validation accuracy plot**
 
     c) *Filename format:*
-    `Training-Validation Accuracy [Network Unit] CCGR([kmer threshold type_encodingColour]) [batch_size] [epochs].png`
+    `Training-Validation Accuracy [Network Unit] CCGR([kmer threshold type_encodingColour]) batchsize [batch_size] epoch [epochs].png`
 
 
 ## Help
