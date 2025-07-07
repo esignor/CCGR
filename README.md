@@ -322,6 +322,8 @@ To execute the Encoder unit script, navigate to the CCGR directory and run the f
 - *--threshold*: threshold parameter T (float between 0 and 1) that defines color assignment based on frequency and/or structural components in the CCGR image.
 - *--jellyfish*: enable Jellyfish as the k-mer counting tool; if this flag is not set, the internal k-mers counter implemented within the CCGR software will be used.
 
+To use Jellyfish, make sure to make the binary file executable with the command: `chmod +x dev/lib/jellyfish/jellyfish-binary`
+
 
 
 #### Example Usage
