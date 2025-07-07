@@ -26,8 +26,12 @@ We recommend using a binary package manager such as **Conda**, Anaconda, or Mini
 **Clone the Repository**
 
 Download or clone this repository:
-```
-git clone https://github.com/esignor/CCGR.git
+
+To view or download the code anonymously, please use this link:
+https://anonymous.4open.science/r/XYZ/
+
+(If needed, click the green "Code" button → "Download ZIP")
+
 cd CCGR
 ```
 
@@ -421,9 +425,3 @@ At the end of a model run, two main directories are generated:
     c) *Filename format:*
     `Training-Validation Accuracy [Network Unit] CCGR([kmer threshold type_encodingColour]) batchsize [batch_size] epoch [epochs].png`
 
-
-## Help
-
-For any questions regarding the repository, requests for additional data, or other inquiries, please open an issue on GitHub or contact Eleonora Signor directly at eleonora.signor@gmail.com.
-
-We can also provide the FASTA files, a container configured for running the code on clusters, and, upon request, pre-processed viral datasets.
