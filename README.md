@@ -32,6 +32,9 @@ https://anonymous.4open.science/r/CCGR-22F2
 
 (If needed, click the button "Download Repository")
 
+**Important:** In the commands and discussions related to this repository, `CCGR-22F2` will be abbreviated as `CCGR`.
+
+
 ```
 cd CCGR
 ```
