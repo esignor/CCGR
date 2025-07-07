@@ -30,7 +30,7 @@ Download or clone this repository:
 To view or download the code anonymously, please use this link:
 https://anonymous.4open.science/r/CCGR-22F2
 
-(If needed, click the green "Code" button → "Download ZIP")
+(If needed, click the button "Download Repository")
 
 ```
 cd CCGR
